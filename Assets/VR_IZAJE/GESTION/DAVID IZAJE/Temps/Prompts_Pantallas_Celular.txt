@@ -1,0 +1,28 @@
+PROMPTS PARA TEXTURAS DE PANTALLA DE CELULAR — Nanobanana
+==========================================================
+IMPORTANTE: NO dibujar el telefono ni manos — solo la imagen plana de la pantalla
+Estilo: Captura de pantalla plana de interfaz de Android, sin bordes de telefono,
+sin marco, sin celular, sin manos, que ocupe toda la imagen, formato vertical,
+resolucion 1080x1920, fondo de pantalla oscuro corporativo, barra de estado
+superior con hora y bateria, aspecto de screenshot directo del sistema.
+
+================================================
+1. PANTALLA DE CELULAR — NOTIFICACION DE ZONAS RESTRINGIDAS (Paso 9)
+================================================
+Prompt:
+Captura de pantalla plana de Android, sin telefono, sin manos, sin bordes, ocupando toda la imagen. Barra de estado superior con hora 10:30, bateria al 80%, icono de señal wifi. Fondo de pantalla oscuro corporativo color gris oscuro. Una notificacion push grande centrada con icono de alerta naranja y texto en español: "ALERTA DE SEGURIDAD — Zonas restringidas. El personal debe mantener distancia del area de izaje. No ingresar al area segregada ni ubicarse bajo la carga suspendida." Debajo de la notificacion un boton grande azul rectangular con texto "INFORMAR" en blanco, estilo material design. Aspecto de screenshot real directo del sistema, nitido, iluminacion uniforme, textura plana, orientacion vertical, alta definicion
+
+================================================
+2. PANTALLA DE CELULAR — NOTIFICACION DE PROTOCOLO DE COMUNICACION (Paso 14)
+================================================
+Prompt:
+Captura de pantalla plana de Android, sin telefono, sin manos, sin bordes, ocupando toda la imagen. Barra de estado superior con hora 11:15, bateria al 75%, icono de señal. Fondo de pantalla oscuro corporativo color gris oscuro. Una notificacion push grande centrada con icono de megafono amarillo y texto en español: "COMUNICACION — Protocolo de comunicacion actualizado. Todo el personal debe conocer las señales de izaje, el canal de radio asignado y a quien dirigirse durante la maniobra." Debajo de la notificacion un boton grande azul rectangular con texto "NOTIFICAR" en blanco, estilo material design. Aspecto de screenshot real directo del sistema, nitido, iluminacion uniforme, textura plana, orientacion vertical, alta definicion
+
+================================================
+NOTAS
+================================================
+- NO incluir telefono, ni bordes de telefono, ni manos sosteniendolo
+- Solo la imagen plana de la pantalla, como un screenshot recortado
+- El boton debe ser claramente visible y el texto legible
+- Se usara como textura sobre el modelo 3D de smartphone existente
+- Resolucion 1080x1920, PNG, sin bordes negros

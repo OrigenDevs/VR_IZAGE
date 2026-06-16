@@ -1,0 +1,138 @@
+=== DIARIO DE PROYECTO — Capacitación de Izaje VR ===
+(Solo lectura para el asistente AI. Actualizar cada día.)
+
+============================================================
+DÍA 1 — 1 de junio (Investigación + Base técnica)
+============================================================
+✅ Completado:
+- Modo escritorio (DesktopInputController + VRHandController modificado)
+- HTMLs: Estructura, ModoEscritorio, Cronograma
+- 6 scripts base (StepManager, StepData, DialogSystemVR, LipSyncController, 
+  UI_ConfirmPopup, VRHandController)
+- ADB funcionando
+
+Notas: Día 1 completo antes de que el asistente llegara.
+
+============================================================
+DÍA 2 — 2 de junio (Arte 3D + UI)
+============================================================
+✅ Completado (sin intervención del asistente):
+- Modelo 3D del robot (usuario ya lo tenía)
+- Entorno 3D (assets ya existentes)
+
+✅ Completado (con asistente):
+- 21 prompts de poses del robot (16 estáticas + 5 dinámicas)
+- El usuario generó las imágenes con IA
+- Archivos renombrados en Referencias/Personaje posado/
+
+✅ Completado (usuario):
+- Diseño de UI completo mediante IA
+
+============================================================
+DÍA 3 — 3 de junio (Creación de contenido)
+============================================================
+✅ Completado:
+- Dialogos.html creado y refinado (formato oscuro, compacto, limpio)
+- 32 prompts para imágenes de pizarra (por cada diálogo Robot:)
+- Archivo Textos_Pizarron.txt con overlays opcionales
+- Estilo final: trazos blancos sobre fondo negro plano, sin texturas
+- Archivos en Temps/ y Documentos/
+
+Notas:
+- Originalmente Día 3 era "Programación base" pero se replanificó
+  para priorizar contenido. Los scripts ya existen, solo falta
+  configurarlos en escena.
+- El usuario reportó tener las imágenes de pizarra ya generándose.
+
+============================================================
+DÍA 5 — 5 de junio (Continuación modelado)
+============================================================
+✅ LO QUE SE HIZO:
+- Usuario: texturas de documentos generadas con Nanobanana
+- Asistente: prompts refinados con texto exacto, sin fechas
+- Asistente: archivos de texturas renombrados (documentos, botas, guantes)
+- GitHub: push exitoso, rama local renombrada a main
+
+⚠️ PENDIENTE DEL USUARIO:
+- Faltan algunos modelos 3D de la lista (tuvo que modelar de cero)
+- Animación de izaje + fallo de grúa NO TERMINADA
+
+============================================================
+DÍA 6 — 6 de junio (Sábado)
+============================================================
+✅ LO QUE SE HIZO:
+- Usuario: avanzó con modelos 3D, quedan 2-3
+- Asistente: creó Prompts_Accesorios_Izaje.txt (11 prompts)
+- Asistente: renombró texturas de documentos, botas, guantes
+- Asistente: actualizó diario
+
+⚠️ PENDIENTE:
+- Faltan 2-3 modelos por descargar
+- Modificar un par de modelos existentes
+- Animación de grúa (izaje + fallo) NO TERMINADA
+
+============================================================
+DÍA 7 — 7 de junio (Domingo)
+============================================================
+✅ LO QUE SE HIZO:
+- Asistente: creó Dashboard.html con timeline y progreso visual
+- Asistente: creó Prompts_Pantallas_Celular.txt
+- Asistente: renombró accesorios descargados
+- Asistente: actualizó prompts accesorios con fondo gris oscuro
+
+⚠️ PENDIENTE DEL USUARIO:
+- Seguían faltando 2-3 modelos
+- Animación de grúa NO TERMINADA
+
+============================================================
+DÍA 8 — 8 de junio (Lunes)
+============================================================
+✅ USUARIO:
+- Terminó todos los modelos 3D del proyecto
+
+⚠️ PENDIENTE:
+- Animación de grúa (izaje + fallo)
+- Montaje en Unity sin empezar
+
+============================================================
+DÍA 9 — 10 de junio (HOY — Contenido COMPLETO)
+=============================================================
+✅ USUARIO COMPLETÓ:
+- Animaciones de grúa (izaje + fallo) ✅
+- Efectos sonoros ✅
+- Diálogo de radio para escena del accidente ✅
+- Dashboard actualizado con nuevo estado ✅
+
+⚠️ PENDIENTE:
+- Montaje en Unity (~6h disponibles hoy)
+- Conectar modelos, scripts, animaciones, audios en escena
+- Probar flujo completo
+
+============================================================
+ESTADO GENERAL vs CRONOGRAMA (días efectivos)
+============================================================
+Día 1 (1 jun)  → ✅ INVESTIGACIÓN
+Día 2 (2 jun)  → ✅ ARTE 3D + UI
+Día 3 (3 jun)  → ✅ CONTENIDO
+[4-7 jun]      → ⛔ PERDIDOS (contratación + fin de semana)
+Día 4 (8 jun)  → ✅ MODELOS + BIBLIOTECA
+Día 5 (9 jun)  → ✅ ANIMACIONES + SFX
+Día 6 (10 jun) → 🔴 HOY = MONTAR UNITY 🔥
+
+============================================================
+VALORACIÓN — 10 de junio
+============================================================
+
+Todo el contenido del proyecto está COMPLETO al 100%:
+modelos, texturas, UI, diálogos, audios, animaciones,
+efectos sonoros, escenarios, biblioteca, scripts base.
+
+Solo queda UN paso: montar todo en Unity.
+
+El usuario tiene ~6 horas hoy para esto. Es justo pero
+alcanzable para un demo funcional en modo escritorio.
+Si se logra conectar los 18 pasos, aunque sea sin pulido
+visual, el proyecto se puede considerar entregable.
+
+Ya no hay plan B — todo el contenido existe, solo falta
+armarlo. Esto es el sprint final.

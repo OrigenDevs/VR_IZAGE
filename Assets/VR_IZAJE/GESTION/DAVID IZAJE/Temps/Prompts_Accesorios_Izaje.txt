@@ -1,0 +1,71 @@
+PROMPTS PARA TEXTURAS DE ACCESORIOS DE IZAJE — Nanobanana
+==========================================================
+Estilo: Render 3D semirrealista de alta calidad, iluminacion de estudio,
+fondo gris oscuro neutro mate uniforme sin sombras de fondo,
+el objeto debe verse nítido y bien iluminado, sin reflejos molestos,
+ángulo que muestre la forma completa del objeto, aspecto profesional.
+
+==================================================
+1. ESLINGA TEXTIL VERDE 60mm
+==================================================
+Render 3D de alta calidad de una eslinga textil plana color verde, tipo cinta de poliéster de 60mm de ancho, enrollada ligeramente en forma de "U" con dos ojos en los extremos, etiqueta blanca con texto "CMU 2000 kg" cosida en un costado, textura de tela con costuras visibles en los bordes, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+2. ESLINGA DE CABLE DE ACERO
+==================================================
+Render 3D de alta calidad de una eslinga de cable de acero trenzado color gris metálico, con ojos (loops) en ambos extremos protegidos con guardacabos metálicos, cable con textura de trenzado en espiral visible, ligeramente curvada, etiqueta metálica colgando con texto "CMU 3200 kg", iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+3. ESLINGA DE CADENA
+==================================================
+Render 3D de alta calidad de una eslinga de cadena de acero, eslabones redondos gruesos enlazados color gris oscuro metálico, con ganchos en ambos extremos, textura de metal con ligeros reflejos, aspecto pesado y resistente, etiqueta con texto "CMU 4000 kg", iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+4. GRILLETE RECTO
+==================================================
+Render 3D de alta calidad de un grillete recto tipo "U" de acero, color gris metálico, con pasador recto roscado y tuerca visible, cuerpo curvo en forma de herradura, superficie metálica con brillo suave, iluminacion de estudio, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+5. GRILLETE DE LIRA
+==================================================
+Render 3D de alta calidad de un grillete de lira (tipo pera) de acero, forma más ancha en la base y estrecha en la parte superior, color gris metálico, con pasador roscado, superficie metálica brillante, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+6. GANCHO CON PESTILLO DE SEGURIDAD
+==================================================
+Render 3D de alta calidad de un gancho de izaje con pestillo de seguridad, tipo auto-bloqueante, color gris metálico oscuro, forma de gancho curvo con punta doblada hacia adentro, pestillo de resorte visible en la parte inferior, argolla giratoria en la parte superior, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+7. ANILLA MAESTRA
+==================================================
+Render 3D de alta calidad de una anilla maestra de izaje, anillo ovalado de acero macizo color gris metálico, de gran tamaño, con dos eslingas textiles conectadas en la parte inferior, superficie metálica con ligeros reflejos y textura de forja, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo grupo centrado, alto detalle
+
+==================================================
+8. CANCAMO
+==================================================
+Render 3D de alta calidad de un cancano de izaje, tornillo de acero con cabeza en forma de ojo o argolla, rosca visible en la parte inferior, color gris metálico, para anclar a la carga, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado en posicion vertical, alto detalle
+
+==================================================
+9. ESLINGA TEXTIL DAÑADA (para comparacion paso 12)
+==================================================
+Render 3D de alta calidad de una eslinga textil plana color verde de 60mm, igual que el modelo 1 pero con daños visibles: cortes en los bordes, hilos sueltos, una seccion desgastada y decolorada, manchas de suciedad, aspecto de uso excesivo, etiqueta rota, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+10. GRILLETE RECTO DAÑADO (para comparacion paso 12)
+==================================================
+Render 3D de alta calidad de un grillete recto de acero dañado, igual que el modelo 4 pero con deformacion visible en un costado, color oxidado y desgastado, superficie con picaduras y corrosión, aspecto de uso en mal estado, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado, alto detalle
+
+==================================================
+11. RADIO WALKIE-TALKIE (pasos 13 y 17)
+==================================================
+Render 3D de alta calidad de un walkie-talkie o radio portátil industrial color negro con detalles naranjas, antena visible, botón grande de hablar en el costado, rejilla de altavoz en la parte frontal, textura de goma antideslizante, iluminacion de estudio suave, fondo gris oscuro neutro mate uniforme sin sombras en el fondo, semirrealista, un solo objeto centrado en posicion vertical, alto detalle
+
+==================================================
+NOTAS DE USO
+===================================================
+- Fondo gris oscuro neutro mate para evitar reflejos en superficies metalicas
+- Cada imagen debe tener solo un objeto centrado
+- Resolucion 1024x1024 o mayor
+- Las imagenes se usaran como sprites 2D o decals en Unity
+- El angulo debe mostrar el objeto completo, ligeramente en perspectiva 3/4
+- Sin texto ni marcas de agua en la imagen final

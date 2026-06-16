@@ -16,6 +16,18 @@ public class VRHandController : MonoBehaviour
     public float laserMaxDistance = 10f;
     public float laserWidth = 0.01f;
 
+    public Color laserColor = Color.red;
+    public Color laserTriggerColor = Color.green;
+    [Range(0f, 1f)]
+    public float laserOpacity = 0.5f;
+
+    public Transform reticle;
+    public float reticleSize = 0.03f;
+    public float reticleDistanceOffset = 0.02f;
+    public bool reticleUseSphere = true;
+
+    public Transform grabAttachPoint;
+
     public bool desktopOverride = false;
     [HideInInspector] public Vector3 desktopPosition;
     [HideInInspector] public Quaternion desktopRotation;
@@ -27,8 +39,15 @@ public class VRHandController : MonoBehaviour
     private List<InputDevice> deviceBuffer = new List<InputDevice>();
     private int noDeviceFrameCount = 0;
     private LineRenderer laser;
+    private Material laserMaterial;
+    private Transform reticleInstance;
+    private Renderer reticleRenderer;
     private bool triggerPressed = false;
+    private bool triggerWasPressed = false;
     private bool hitObject = false;
+    private RaycastHit lastHit;
+    private SimpleGrab grabbedObject;
+    private Button3D hoveredButton;
 
     void Start()
     {
@@ -43,8 +62,27 @@ public class VRHandController : MonoBehaviour
         laser.positionCount = 2;
         laser.startWidth = laserWidth;
         laser.endWidth = laserWidth * 0.5f;
-        laser.material = new Material(Shader.Find("Unlit/Color"));
-        laser.enabled = false;
+        laserMaterial = new Material(Shader.Find("Unlit/Color"));
+        laser.material = laserMaterial;
+        laser.enabled = true;
+
+        if (reticle == null)
+        {
+            PrimitiveType type = reticleUseSphere ? PrimitiveType.Sphere : PrimitiveType.Quad;
+            GameObject rt = GameObject.CreatePrimitive(type);
+            rt.name = "Reticle (" + node + ")";
+            DestroyImmediate(rt.GetComponent<Collider>());
+            rt.transform.localScale = Vector3.one * reticleSize;
+            reticleInstance = rt.transform;
+            reticleRenderer = rt.GetComponent<Renderer>();
+            reticleRenderer.material = new Material(Shader.Find("Unlit/Color"));
+        }
+        else
+        {
+            reticleInstance = reticle;
+            reticleRenderer = reticle.GetComponent<Renderer>();
+        }
+        reticleInstance.gameObject.SetActive(true);
 
         FindDevice();
         InputDevices.deviceConnected += OnDeviceConnected;
@@ -81,6 +119,7 @@ public class VRHandController : MonoBehaviour
             if (interactor != null)
                 interactor.selectInput.manualPerformed = desktopTrigger;
             UpdateLaser();
+            HandleGrab();
             UpdateHandColor();
             return;
         }
@@ -112,8 +151,16 @@ public class VRHandController : MonoBehaviour
         {
             noDeviceFrameCount++;
             laser.enabled = false;
+            if (reticleInstance != null)
+                reticleInstance.gameObject.SetActive(false);
+            if (grabbedObject != null)
+            {
+                grabbedObject.Release();
+                grabbedObject = null;
+            }
         }
 
+        HandleGrab();
         UpdateHandColor();
     }
 
@@ -122,22 +169,88 @@ public class VRHandController : MonoBehaviour
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
 
-        RaycastHit hit;
         Vector3 endPoint = origin + direction * laserMaxDistance;
-        hitObject = Physics.Raycast(origin, direction, out hit, laserMaxDistance);
+        hitObject = Physics.Raycast(origin, direction, out lastHit, laserMaxDistance);
         if (hitObject)
-            endPoint = hit.point;
+            endPoint = lastHit.point;
 
         laser.SetPosition(0, origin);
         laser.SetPosition(1, endPoint);
-        laser.enabled = triggerPressed;
+        laser.enabled = true;
 
-        Color laserColor = triggerPressed
-            ? (hitObject ? selectColor : triggerPressedColor)
-            : defaultColor;
-        laser.startColor = laserColor;
-        laser.endColor = laserColor;
-        laser.material.color = laserColor;
+        Color col = triggerPressed ? laserTriggerColor : laserColor;
+        col.a = laserOpacity;
+        laser.startColor = col;
+        laser.endColor = col;
+        laserMaterial.color = col;
+
+        if (reticleInstance != null)
+        {
+            reticleInstance.gameObject.SetActive(true);
+            reticleInstance.position = endPoint + direction * reticleDistanceOffset;
+            if (reticleUseSphere)
+                reticleInstance.rotation = Quaternion.identity;
+            else
+                reticleInstance.rotation = Quaternion.LookRotation(-direction);
+            if (reticleRenderer != null)
+            {
+                Color rc = col;
+                rc.a = 1f;
+                reticleRenderer.material.color = rc;
+            }
+        }
+    }
+
+    void HandleGrab()
+    {
+        bool triggerJustPressed = triggerPressed && !triggerWasPressed;
+        bool triggerJustReleased = !triggerPressed && triggerWasPressed;
+        triggerWasPressed = triggerPressed;
+
+        SimpleGrab sg = null;
+        Button3D btn = null;
+
+        if (hitObject && lastHit.collider != null)
+        {
+            sg = lastHit.collider.GetComponentInParent<SimpleGrab>();
+            if (sg == null)
+                btn = lastHit.collider.GetComponentInParent<Button3D>();
+        }
+
+        Button3D newHovered = (sg != null || grabbedObject != null) ? null : btn;
+        if (newHovered != hoveredButton)
+        {
+            if (hoveredButton != null) hoveredButton.OnHoverEnd();
+            if (newHovered != null) newHovered.OnHoverStart();
+            hoveredButton = newHovered;
+        }
+
+        if (triggerJustPressed)
+        {
+            if (sg != null && grabAttachPoint != null)
+            {
+                if (grabbedObject != null && grabbedObject != sg)
+                    grabbedObject.Release();
+                grabbedObject = sg;
+                grabbedObject.Grab(grabAttachPoint);
+            }
+            else if (hoveredButton != null)
+            {
+                hoveredButton.OnPress();
+            }
+        }
+        else if (triggerJustReleased)
+        {
+            if (grabbedObject != null)
+            {
+                grabbedObject.Release();
+                grabbedObject = null;
+            }
+            if (hoveredButton != null)
+            {
+                hoveredButton.OnRelease();
+            }
+        }
     }
 
     void UpdateHandColor()
@@ -164,5 +277,15 @@ public class VRHandController : MonoBehaviour
     void OnDestroy()
     {
         InputDevices.deviceConnected -= OnDeviceConnected;
+        if (grabbedObject != null)
+        {
+            grabbedObject.Release();
+            grabbedObject = null;
+        }
+        if (hoveredButton != null)
+        {
+            hoveredButton.OnHoverEnd();
+            hoveredButton = null;
+        }
     }
 }

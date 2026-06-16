@@ -1,0 +1,258 @@
+LISTA DE MODELOS 3D NECESARIOS — Capacitación de Izaje VR
+===========================================================
+Orden sugerido de creación: de más usado a menos, y por fase.
+
+====================================================================
+PERSISTENTES / USO EN VARIOS PASOS
+====================================================================
+Hacer estos primero porque aparecen en múltiples fases.
+
+1. GRÚA MÓVIL
+   - Modelo completo con pluma, gancho, cabina, ruedas, estabilizadores
+   - Escala: realista pero adaptada a entorno VR (no hyperrealista)
+   - Estado: ¿ya existe? El usuario dijo que el entorno ya estaba.
+
+2. CARGA / CARGA GENÉRICA
+   - Forma de caja rectangular con esquinas reforzadas
+   - Debe tener un punto de anclaje visible en la parte superior
+   - Opcional: textura de material (madera, metal)
+
+3. MESA DE INSPECCIÓN
+   - Mesa alta tipo banco de trabajo
+   - Superficie plana para colocar objetos encima
+   - Altura aprox 90cm en escala VR
+
+4. MAQUETA INTERACTIVA (Fase 2)
+   - Base cuadricrada o con cuadrícula visible
+   - Versión mini de la grúa para vista general
+   - Tamaño: ~1m de ancho en VR
+
+====================================================================
+PASO 1 — PARTICIPACIÓN EN EL PLAN DE IZAJE
+====================================================================
+5. RIGGER (figura humana esquemática)
+   - Figura humana simplificada (estilo cartoon o low-poly)
+   - Casco amarillo, chaleco reflectante naranja
+   - Brazo levantado dando señales (pose estática o animada)
+
+6. OPERADOR DE GRÚA (figura humana esquemática)
+   - Figura humana sentada en cabina
+   - Casco, visible desde la ventana de la cabina
+
+====================================================================
+PASO 2 — CERTIFICACIÓN DEL RIGGER
+====================================================================
+7. CERTIFICADO 3D (genérico, reutilizable en pasos 2, 3, 5, 12)
+   - Hoja rectangular con bordes
+   - Sello circular relief
+   - Firma esquemática
+   - Debe flotar frente al usuario
+   - Que se pueda resaltar con brillo
+
+====================================================================
+PASO 3 — CERTIFICACIÓN DE LA GRÚA MÓVIL
+====================================================================
+(Usa el certificado 7 y la grúa 1)
+
+====================================================================
+PASO 4 — MANTENIMIENTO AL DÍA
+====================================================================
+8. CALENDARIO 3D
+   - Hoja de calendario con marcas de check en fechas
+   - Estilo de pared, tamaño A4
+
+9. CERTIFICADO DE MANTENIMIENTO
+   - Similar al certificado 7 pero con icono de herramienta
+
+====================================================================
+PASO 5 — APROBACIÓN DEL PLAN DE IZAJE
+====================================================================
+(Usa certificado 7 con sello "Aprobado" visible)
+
+====================================================================
+PASO 6 — ESTABILIZACIÓN DE LA GRÚA
+====================================================================
+(Usa maqueta 4 y grúa 1 en miniatura)
+10. ALMOHADILLAS DE ESTABILIZADOR
+    - Placas cuadradas/rectangulares
+    - Textura de goma o metal antideslizante
+    - Tamaño proporcional a la grúa
+
+====================================================================
+PASO 7 — CENTRO DE GRAVEDAD
+====================================================================
+11. OBSTÁCULOS (varios)
+    - Cajas pequeñas (3-4)
+    - Barriles metálicos (2-3)
+    - Tubos o vigas (2-3)
+    - Deben poder eliminarse individualmente
+
+====================================================================
+PASO 8 — ÁREA SEGREGADA
+====================================================================
+12. CONOS DE SEGURIDAD (4-6 unidades)
+    - Cono naranja con bandas reflectantes blancas
+    - Tamaño: ~50cm de alto
+
+13. CINTA DE SEGURIDAD (barrera visual)
+    - Podría ser un modelo de poste con cinta entre postes
+    - O una línea en el suelo (shader/effect)
+
+====================================================================
+PASO 9 — INFORMACIÓN AL PERSONAL
+====================================================================
+14. CELULAR 3D (smartphone)
+    - Modelo genérico tipo smartphone
+    - Pantalla que pueda cambiar de color/brillo
+    - Para notificaciones en pasos 9 y 14
+
+15. FIGURAS DE PERSONAL (2-3)
+    - Figuras humanas esquemáticas (similares al Rigger)
+    - Sin casco o con casco, de pie
+
+====================================================================
+PASO 10 — INSPECCIÓN DE EQUIPOS (EPP)
+====================================================================
+16. CASCO DE SEGURIDAD
+    - Casco amarillo o blanco
+    - Con banda reflectante
+    - Seleccionable (desaparece al elegirlo)
+
+17. GUANTES DE TRABAJO
+    - Par de guantes grises o naranjas
+    - Textura de tela/cuero
+
+18. ARNÉS DE SEGURIDAD
+    - Arnés de cuerpo completo
+    - Correas y hebillas visibles
+
+19. GAFAS DE SEGURIDAD
+    - Gafas transparentes con marco
+
+20. PROTECTORES AUDITIVOS
+    - Tipo orejeras (copas sobre los oídos)
+
+21. BOTAS DE SEGURIDAD
+    - Botas con punta de acero
+
+====================================================================
+PASO 11 — SELECCIÓN DE ACCESORIOS DE IZAJE
+====================================================================
+22. ESLINGA TEXTIL
+    - Cinta plana de color verde
+    - Debe verse flexible (puede ser una malla con deformación)
+    - Longitud ~2m en escala
+
+23. ESLINGA DE CABLE DE ACERO
+    - Cable trenzado en espiral
+    - Ojos (loops) en los extremos
+    - Color gris metálico
+
+24. ESLINGA DE CADENA
+    - Eslabones redondos enlazados
+    - Color gris oscuro o negro
+    - Aspecto pesado
+
+25. GRILLETE RECTO
+    - Forma de "U" con pasador recto
+    - Metal gris
+
+26. GRILLETE DE LIRA
+    - Forma de pera (más ancho en la base)
+    - Con pasador roscado
+
+27. GANCHO CON PESTILLO DE SEGURIDAD
+    - Gancho de grúa en miniatura
+    - Pestillo de resorte visible
+    - Tipo auto-bloqueante
+
+28. ANILLA MAESTRA
+    - Anillo circular grande
+    - Con varios ramales de eslinga conectados (opcional)
+
+29. CÁNCAMO
+    - Tornillo con ojo en la parte superior
+    - Rosca visible
+
+====================================================================
+PASO 12 — CERTIFICACIÓN Y ESTADO DE ELEMENTOS
+====================================================================
+30. ESLINGA DAÑADA (para对比)
+    - Misma forma que la eslinga textil 22
+    - Con fisuras visibles (líneas rojas)
+    - Deformación en un tramo
+    - Color más apagado
+
+31. GRILLETE DAÑADO (para对比)
+    - Misma forma que grillete 25
+    - Con deformación visible
+    - Color oxidado / desgastado
+
+====================================================================
+PASO 13 — SISTEMA DE COMUNICACIÓN
+====================================================================
+32. RADIO / WALKIE-TALKIE
+    - Modelo de radio con antena
+    - Botón grande en el costado
+    - Reutilizable en paso 17
+
+33. VIDEOCÁMARA
+    - Cámara pequeña con trípode o mano
+    - Lente visible
+
+====================================================================
+PASO 14 — PROTOCOLO DE COMUNICACIÓN
+====================================================================
+(Usa celular 14 y figuras 15)
+
+====================================================================
+PASO 15 — VERIFICACIÓN CLIMÁTICA
+====================================================================
+34. ANEMÓMETRO
+    - Dispositivo de mano
+    - Aspas o hélices visibles
+    - Pantalla pequeña (puede ser un panel emisivo)
+    - Seleccionable por el usuario
+
+====================================================================
+PASO 16 — DISPOSICIÓN FINAL DE LA CARGA
+====================================================================
+35. DURMIENTES / PLATAFORMAS DE REPARTO
+    - Tablones de madera gruesos
+    - Colocados en paralelo
+    - Textura de madera
+
+====================================================================
+PASO 17 — CONFIRMACIÓN CON OPERADOR
+====================================================================
+(Usa radio 32)
+
+====================================================================
+PASO 18 — CIERRE (CINEMÁTICA)
+====================================================================
+(Usa modelos existentes: grúa, carga, figuras)
+Requiere animación de la carga cayendo, no modelos nuevos.
+
+====================================================================
+RESUMEN POR PRIORIDAD
+====================================================================
+ALTA (necesarios ya para montar la escena):
+- Certificado 3D (7) — aparece en pasos 2,3,4,5,12
+- Celular 3D (14) — aparece en pasos 9 y 14
+- Conos de seguridad (12) — paso 8
+- Figuras humanas (5,6,15) — pasos 1,9
+- Radio (32) — pasos 13 y 17
+- Eslingas (22,23,24) — paso 11
+- Anemómetro (34) — paso 15
+
+MEDIA:
+- EPP: casco, guantes, arnés, gafas, botas (16-21) — paso 10
+- Grilletes, gancho, anilla, cáncamo (25-29) — paso 11
+- Obstáculos (11) — paso 7
+- Calendario (8) — paso 4
+
+BAJA:
+- Elementos dañados (30,31) — paso 12
+- Durmientes (35) — paso 16
+- Videocámara (33) — paso 13
+- Almohadillas (10) — paso 6

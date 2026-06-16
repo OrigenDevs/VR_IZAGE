@@ -1,0 +1,20 @@
+## 16/06/2026 — Juan
+
+### Qué hice hoy
+- Implementé mirilla visual (reticle) en el láser de la mano: esfera pequeña en el punto de impacto
+- Creé SimpleGrab: script de agarre simplificado que mueve objetos a la mano con velocidad configurable (reemplaza XRGrabInteractable)
+- Creé Button3D: script para botones 3D interactivos con hover (escala 1.2), press (escala 0.8) y sonido al soltar
+- Añadí que los objetos agarrados miren hacia la cámara automáticamente
+- Corregí OscilacionAutomatica para usar posición local en vez de global
+- Limpié Debug.Log del código de producción
+- Actualicé DOCUMENTACION.md con los nuevos scripts
+
+### Problemas / dudas
+- La mirilla no se veía inicialmente (z-fighting con la superficie). Solución: usar esfera en vez de quad + pequeño offset.
+- El movimiento de cámara se desconfiguró al probar (era un tema de Rigidbody en la cámara, ya resuelto por David)
+- Al hacer grab de objetos con Rigidbody, había que ponerlos kinematic para que no interfieran
+
+### Próximos pasos
+- Empezar a montar la UI 3D con los botones
+- Conectar botones al StepManager
+- Crear los 18 StepData ScriptableObjects

@@ -1,0 +1,72 @@
+PROMPTS PARA POSES DEL ROBOT — Capacitación de Izaje VR
+=======================================================
+(Generar imágenes con IA tipo Midjourney / DALL-E / Leonardo)
+
+Estilo sugerido: robot asistente caricaturesco pero profesional, colores azul/gris/blanco, fondo negro o neutro, iluminación suave, render 3D estilo Pixar/animación.
+
+---
+
+1. ROBOT PRESENTÁNDOSE
+Robot asistente de cuerpo completo sonriendo con ambos brazos abiertos en gesto de bienvenida. Fondo oscuro neutro. Iluminación suave. Estilo animación 3D profesional. — robot assistant full body smiling with both arms open in welcome gesture, dark neutral background, soft lighting, 3D animation style
+
+2. ROBOT SEÑALANDO HACIA UN LADO
+Robot de cuerpo completo con un brazo extendido señalando hacia la derecha, mirada hacia donde señala, postura erguida, profesional. — robot assistant full body pointing to the right, looking at where it points, upright professional posture
+
+3. ROBOT CON BRAZOS CRUZADOS (SEGURO/ CONFIADO)
+Robot de pie con brazos cruzados sobre el pecho, expresión seria pero amigable, postura de confianza y seguridad. — robot assistant standing with arms crossed, serious but friendly expression, confident posture
+
+4. ROBOT ENTREGANDO UN CASCO
+Robot sosteniendo un casco de seguridad amarillo con ambas manos, extendiéndolo hacia el frente, gesto de ofrecimiento. — robot assistant holding a yellow hard hat with both hands, extending it forward, offering gesture
+
+5. ROBOT CON ARNÉS Y GUANTES PUESTOS
+Robot de cuerpo completo usando arnés de seguridad naranja y guantes de trabajo grises, brazos ligeramente separados mostrando el equipo. — robot assistant full body wearing orange safety harness and gray work gloves, arms slightly spread showing the equipment
+
+6. ROBOT MOSTRANDO UN DOCUMENTO
+Robot sosteniendo un clip de papel o documento virtual con una mano, señalándolo con la otra, como explicando información importante. — robot assistant holding a clipboard or virtual document with one hand, pointing at it with the other, explaining important information
+
+7. ROBOT SALUDANDO
+Robot con una mano levantada en gesto de saludo, sonrisa amigable, postura relajada y accesible. — robot assistant with one hand raised in greeting, friendly smile, relaxed approachable posture
+
+8. ROBOT PENSATIVO / EXPLICANDO
+Robot con una mano en la barbilla, mirada hacia arriba ligeramente, gesto de estar pensando o explicando algo importante. — robot assistant with one hand on chin, looking slightly upward, thinking or explaining gesture
+
+9. ROBOT CON DEDO ADVERTENCIA
+Robot con dedo índice levantado en gesto de advertencia o énfasis, expresión seria pero no agresiva, postura de enseñanza. — robot assistant with index finger raised in warning or emphasis gesture, serious but not aggressive expression, teaching posture
+
+10. ROBOT SOSTENIENDO UNA RADIO
+Robot sosteniendo una radio o walkie-talkie cerca de su oreja con una mano, la otra mano relajada al costado, escuchando. — robot assistant holding a radio or walkie-talkie near its ear with one hand, other hand relaxed at side, listening posture
+
+11. ROBOT MOSTRANDO UNA ESLINGA
+Robot sosteniendo una eslinga textil verde con ambas manos, mostrándola hacia el frente, postura didáctica. — robot assistant holding a green textile sling with both hands, showing it forward, educational posture
+
+12. ROBOT APUNTANDO HACIA ABAJO (SEÑAL DE SEGURIDAD)
+Robot señalando firmemente hacia el suelo con un brazo extendido, la otra mano en la cadera, mirada seria y firme. — robot assistant pointing firmly downward with one arm extended, other hand on hip, serious firm expression
+
+13. ROBOT CELEBRANDO / COMPLETADO
+Robot con ambos brazos levantados en celebración, sonrisa grande, postura de logro o misión completada. — robot assistant with both arms raised in celebration, big smile, achievement or mission complete posture
+
+14. ROBOT CON BRAZOS ATRÁS (POSTURA FORMAL)
+Robot de pie con las manos detrás de la espalda, postura recta formal, mirada al frente, estilo instructor profesional. — robot assistant standing with hands behind back, straight formal posture, looking forward, professional instructor style
+
+15. ROBOT SOSTENIENDO UN ANEMÓMETRO
+Robot sosteniendo un anemómetro (medidor de viento) con una mano, mirando el dispositivo, la otra mano señalando el dispositivo. — robot assistant holding an anemometer with one hand, looking at the device, other hand pointing at it
+
+16. ROBOT CON GUANTES Y CASCO PUESTOS (FULL EPP)
+Robot de cuerpo completo usando casco blanco, guantes grises, arnés naranja y botas de seguridad, brazos extendidos mostrando el equipo completo. — robot assistant full body wearing white hard hat, gray gloves, orange harness and safety boots, arms spread showing full PPE
+
+--- POSES DINÁMICAS (con rotación y movimiento de pies) ---
+
+17. ROBOT CAMINANDO HACIA EL FRENTE (ACERCÁNDOSE)
+Robot en pleno paso, un pie adelantado y el otro atrás, torso ligeramente inclinado hacia adelante, brazo adelantado en gesto de saludo, mirada al usuario, dinámico. — robot assistant mid-step, one foot forward one back, torso slightly leaning forward, arm reaching out in greeting, looking at user, dynamic walking pose
+
+18. ROBOT DE PERFIL SEÑALANDO ATRÁS
+Robot de medio perfil (cuerpo rotado ~45 grados), cabeza girada mirando hacia atrás sobre el hombro, un brazo señalando hacia atrás, el otro en la cadera, un pie ligeramente girado, peso en la pierna trasera. — robot assistant in half-profile view, body rotated 45 degrees, head turned looking back over shoulder, one arm pointing backward, other hand on hip, one foot slightly turned, weight on back leg
+
+19. ROBOT AGACHADO INSPECCIONANDO UN EQUIPO
+Robot agachado con rodillas flexionadas, un pie adelantado, torso inclinado hacia abajo, brazos extendidos sosteniendo un elemento de izaje (grillete) cerca del suelo, mirada concentrada en el objeto. — robot assistant crouching with bent knees, one foot forward, torso leaning down, arms extended holding a rigging shackle near the ground, focused gaze on the object
+
+20. ROBOT EN ACCIÓN DE ENSEÑANZA (ROTACIÓN COMPLETA)
+Robot con un pie adelantado y el otro atrás, torso rotado ~30 grados, un brazo extendido hacia arriba señalando algo, el otro brazo abierto hacia un lado, cabeza ligeramente levantada siguiendo la mano, postura de explicar algo grande e importante. — robot assistant with one foot forward and one back, torso rotated 30 degrees, one arm extended upward pointing at something, other arm open to the side, head slightly raised following the hand, explaining something big and important posture
+
+21. ROBOT DANDO UN PASO AL COSTADO (SEÑAL DE ALTO)
+Robot en movimiento lateral, un pie cruzando por delante del otro, torso girado hacia el frente, ambos brazos extendidos con las palmas abiertas hacia adelante en gesto de alto, mirada directa y firme. — robot assistant in side-step motion, one foot crossing in front of the other, torso facing forward, both arms extended with open palms forward in stop gesture, direct firm gaze

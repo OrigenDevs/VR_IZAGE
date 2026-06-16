@@ -1,18 +1,119 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class SimpleGrab : XRGrabInteractable
+public class SimpleGrab : MonoBehaviour
 {
-    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    public float grabSpeed = 8f;
+    public float releaseSpeed = 4f;
+    public bool faceCamera = true;
+    public float faceCameraSpeed = 10f;
+
+    private Transform grabTarget;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private Transform originalParent;
+    private Rigidbody rb;
+    private bool rbWasKinematic;
+    private bool isGrabbed = false;
+    private bool movingToHand = false;
+    private bool movingToOriginal = false;
+
+    void Start()
     {
-        base.OnSelectEntering(args);
-        GetComponent<Renderer>().material.color = Color.green;
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
+        originalParent = transform.parent;
+        rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rbWasKinematic = rb.isKinematic;
+            rb.useGravity = false;
+        }
     }
 
-    protected override void OnSelectExiting(SelectExitEventArgs args)
+    public void Grab(Transform target)
     {
-        base.OnSelectExiting(args);
-        GetComponent<Renderer>().material.color = Color.red;
+        if (target == null || isGrabbed) return;
+        isGrabbed = true;
+        movingToHand = true;
+        movingToOriginal = false;
+        grabTarget = target;
+        transform.SetParent(null);
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+    }
+
+    public void Release()
+    {
+        if (!isGrabbed) return;
+        isGrabbed = false;
+        movingToOriginal = true;
+        movingToHand = false;
+        transform.SetParent(null);
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+    }
+
+    void Update()
+    {
+        if (movingToHand && grabTarget != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, grabTarget.position, Time.deltaTime * grabSpeed);
+            if (faceCamera)
+            {
+                Camera cam = Camera.main;
+                if (cam != null)
+                {
+                    Vector3 dir = cam.transform.position - transform.position;
+                    if (dir != Vector3.zero)
+                        transform.rotation = Quaternion.LookRotation(dir);
+                }
+            }
+            if (Vector3.Distance(transform.position, grabTarget.position) < 0.005f)
+            {
+                movingToHand = false;
+                Quaternion currentRot = transform.rotation;
+                transform.SetParent(grabTarget);
+                transform.localPosition = Vector3.zero;
+                transform.rotation = currentRot;
+                if (rb != null) rb.isKinematic = true;
+            }
+        }
+        else if (movingToOriginal)
+        {
+            transform.position = Vector3.Lerp(transform.position, originalPosition, Time.deltaTime * releaseSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime * releaseSpeed);
+            if (Vector3.Distance(transform.position, originalPosition) < 0.005f)
+            {
+                movingToOriginal = false;
+                transform.position = originalPosition;
+                transform.rotation = originalRotation;
+                transform.SetParent(originalParent);
+                if (rb != null)
+                {
+                    rb.isKinematic = rbWasKinematic;
+                    rb.useGravity = !rbWasKinematic;
+                }
+            }
+        }
+
+        if (isGrabbed && !movingToHand && !movingToOriginal && faceCamera)
+        {
+            Camera cam = Camera.main;
+            if (cam != null)
+            {
+                Vector3 dir = cam.transform.position - transform.position;
+                if (dir != Vector3.zero)
+                {
+                    Quaternion targetRot = Quaternion.LookRotation(dir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * faceCameraSpeed);
+                }
+            }
+        }
     }
 }

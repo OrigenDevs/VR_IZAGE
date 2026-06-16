@@ -1,0 +1,221 @@
+MENU PRINCIPAL
+Bienvenido al centro de capacitación en realidad virtual. Aquí encontrarás distintos cursos para entrenar y practicar. Selecciona un módulo para comenzar.
+(Audio que se reproduce en el menu princial)
+----------------------------------------
+INTRODUCION
+Robot: Has elegido el módulo de izaje. Soy tu asistente virtual y te guiaré paso a paso durante todo el entrenamiento. 
+
+En este curso aprenderás los procedimientos correctos para realizar un izaje de forma segura. Revisaremos documentos.
+
+(El usuario entra al entorno y aparece el robot presentándose)
+----------------------------------------
+PASO 1 — PARTICIPACION EN EL PLAN DE IZAJE
+Robot: El izaje es una maniobra donde se levanta y moviliza una carga con una grúa. Para que sea segura, dos personas clave trabajan juntas: el Rigger y el Operador de Grúa.
+
+El Rigger es quien dirige la maniobra, inspecciona los equipos y da las señales. El Operador maneja la grúa y ejecuta las instrucciones del Rigger. Durante todo el curso los verás coordinándose en cada paso.
+
+(Aparece el Rigger, el operador y en el pizarrón, se muestra una imagen alusiva al Izaje. y aparece panles "entendido")
+----------------------------------------
+PASO 2 — CERTIFICACION DEL RIGGER
+(Aparece un certificado 3D flotando frente al usuario)
+
+Robot: Ahora que conoces al Rigger y al Operador, revisemos sus documentos. El Rigger debe tener una certificación vigente para dirigir la maniobra. Sin ella, no puede operar.
+
+(El certificado se resalta con un brillo, y aparece panel "entendido")
+----------------------------------------
+PASO 3 — CERTIFICACION DE LA GRUA MOVIL
+(Aparece un modelo 3D de una grúa móvil, junto a un certificado flotando)
+
+Robot: La grúa móvil también necesita su propia certificación, emitida por un organismo competente. Esto asegura que el equipo está aprobado para operar.
+
+(Aparece panel "entendido")
+----------------------------------------
+PASO 4 — MANTENIMIENTO AL DIA
+(Aparece un calendario 3D con marcas de mantenimiento, junto al certificado de mantenimiento)
+
+Robot: Además de la certificación, el equipo debe tener el mantenimiento al día. Tanto el mantenimiento preventivo como el correctivo deben estar actualizados para garantizar un funcionamiento seguro.
+
+(Aparece panel "entendido")
+----------------------------------------
+PASO 5 — APROBACION DEL PLAN DE IZAJE
+(Aparece un documento 3D con un sello de "Aprobado" flotando)
+
+Robot: Por último, el plan de izaje debe estar aprobado por el encargado de la maniobra o un supervisor calificado. Sin esta aprobación, no se puede ejecutar el izaje.
+
+(Aparece panel "entendido")
+========================================
+FASE 2 — MAQUETA: EXPLORACION DEL AREA DE TRABAJO
+========================================
+
+PASO 6 — ESTABILIZACION DE LA GRUA
+(Aparece una maqueta 3D de la grúa con los estabilizadores visibles)
+
+Robot: Ahora pasaremos a la maqueta interactiva. Aquí podrás ver el área de trabajo desde una vista general. Lo primero que debes revisar es que la grúa esté bien estabilizada.
+
+(Los estabilizadores de la grúa se iluminan en la maqueta)
+
+Robot: La grúa debe tener los estabilizadores completamente apoyados sobre las almohadillas y extendidos al 100%. Sin una base firme, la grúa puede volcarse al levantar la carga.
+
+(Aparece panel "entendido")
+
+PASO 7 — CENTRO DE GRAVEDAD DE LA CARGA
+(La maqueta muestra una carga con una línea marcando su centro de gravedad)
+
+Robot: Ahora identifiquemos el centro de gravedad de la carga. Es el punto donde se concentra todo el peso. Si no lo ubicas bien, la carga puede inclinarse o desequilibrarse al levantarla.
+
+(La maqueta muestra obstáculos alrededor de la carga, aparece un panel de eliminar en los obstáculos)
+
+Robot: También hay que verificar que la carga esté libre de empotramiento, es decir, sin nada que la bloquee o la fije a otra estructura. elimina los obstáculos para poder continuar
+
+(Una vez eliminados los obstáculos, el usuario podrá continuar)
+
+PASO 8 — AREA DE IZAJE SEGREGADA Y SEÑALIZADA
+(La maqueta muestra el área de trabajo con zonas marcadas y cintas de seguridad)
+
+Robot: El área de izaje debe estar completamente segregada, delimitada y señalizada en todos los niveles. Nadie debe ingresar sin autorización.
+
+(La maqueta muestra el área de proyección de la carga resaltada)
+
+Robot: Esto incluye el área de proyección de la carga, por si llegara a caer algo. 
+
+Arrastra los conos en el area seleccionada para señalizar el area.
+
+(Una vez el usuario señalice el área, se continuará el siguiente paso)
+
+PASO 9 — INFORMACION AL PERSONAL SOBRE ZONAS RESTRINGIDAS
+(Aparece un celular 3D enviando una notificación)
+
+Robot: El personal que participa en la maniobra debe saber que no puede ingresar al área segregada ni ubicarse bajo la carga suspendida.
+
+(En el celular aparece un panel de botón de informar)
+Robot: Es importante que todos reciban esta información antes de comenzar. Informa al personal sobre las zonas restringidas.
+(Una vez el usuario haga clic en el botón "informar", se seguirá la siguiente fase.)
+
+========================================
+FASE 3 — MESA: INSPECCION Y SELECCION DE ELEMENTOS
+========================================
+
+PASO 10 — INSPECCION DEL EQUIPO (elementos de protección personal)
+
+Robot: Ahora trabajaremos en la mesa de inspección. Aquí revisaremos los equipos uno por uno. Lo primero es comprobar que todos los elementos y sistemas de seguridad estén operativos. Selecciona los elementos para equiparlos en nuestro inventario.
+
+(La mesa muestra una lista de verificación y Modelos 3D de los elementos de seguridad, cada vez que el usuario seleccione un elemento, éste desaparecerá y será chuleado en la lista de check list.)
+
+(Al completar todos los elementos se pasará a la siguiente fase)
+
+PASO 11 — SELECCION DE ACCESORIOS DE IZAJE
+(La mesa muestra diferentes accesorios: eslingas, grilletes, ganchos, anillas)
+
+Robot: Ahora veremos los accesorios de izaje. Cada uno tiene un uso específico y una capacidad máxima que no debe superarse, llamada CMU o WLL.
+
+(La mesa muestra los tres tipos de eslingas)
+
+Robot: Existen tres tipos de eslingas. Las eslingas textiles son para cargas delicadas, no rayan ni marcan. Las de cable de acero soportan mejor la abrasión y el roce. Las de cadena son para trabajos pesados y altas temperaturas.
+
+(La guía virtual muestra grilletes, ganchos y anillas)
+
+Robot: Luego están los grilletes, que pueden ser rectos o de lira, y se usan para conectar las eslingas a la carga. Los ganchos deben tener pestillo de seguridad o ser auto-bloqueantes para evitar que la carga se suelte. Las anillas maestras sirven para unir varios ramales de eslingas al gancho de la grúa. Y los cáncamos son puntos de anclaje fijos en la propia carga.
+
+(La pizarra muestra una tabla de selección según peso)
+
+Robot: Para elegir bien hay que considerar el peso de la carga, el tipo de material, el ángulo de los ramales y el ambiente de trabajo. Por ejemplo: para una carga de 1.500 kilos, usando dos eslingas textiles a 45 grados, necesitarás eslingas verdes de 60 milímetros con CMU de 2.000 kilos, y grilletes de 2 toneladas.
+
+(Aparece panel "entendido")
+
+PASO 12 — CERTIFICACION Y ESTADO DE ELEMENTOS DE IZAJE
+(La mesa muestra dos elementos: uno en buen estado y otro dañado)
+
+Robot: Cada elemento de izaje debe tener su certificación o memoria de cálculo, y estar libre de daños como fisuras, desgaste o deformaciones.
+
+(El elemento dañado se resalta en rojo, el bueno en verde)
+
+Robot: selecciona el elemento seguro para continuar.
+
+(Una vez la persona seleccione el elemento correcto se seguirá el próximo paso)
+
+PASO 13 — SISTEMA DE COMUNICACION EFECTIVO
+(La pizarra muestra una radio, una videocámara y señales con las manos)
+
+Robot: Para que la maniobra sea segura, debe haber un sistema de comunicación claro entre el Rigger y el Operador. Puede ser por radio, videocámara o señas.
+
+(Aparece panel "entendido")
+
+PASO 14 — COMPRENSION DEL PROTOCOLO DE COMUNICACION
+(Aparece un celular enviando una notificación a todos los operarios)
+
+Robot: No basta con tener los equipos de comunicación. Todo el personal debe entender el protocolo: qué señales usar, cómo responder y a quién dirigirse. Notifica al personal para que se entere del protocolo.
+(En el celular aparece un botón "Notificar".)
+(Una vez notificado el personal se seguirá la siguiente fase.)
+========================================
+FASE 4 — CAMPO: INMERSION Y EJECUCION
+========================================
+
+PASO 15 — VERIFICACION CLIMATICA
+(El usuario está en el campo virtual. Aparece un anemómetro midiendo el viento)
+
+Robot: Ahora estamos en terreno. Antes de cualquier maniobra hay que verificar el clima. El viento, la lluvia o la niebla pueden hacer peligroso el izaje. Seleccione el anemómetro para verificar las condiciones climáticas.
+
+(Aparece un anemómetro. Una vez seleccionado y pasado un tiempo considerable, el robot va a hablar y se seguirá al siguiente paso.)
+
+Perfecto las condiciones climáticas son Adecuadas para realizar el izaje.
+
+PASO 16 — DISPOSICION FINAL DE LA CARGA
+(El campo muestra el lugar donde se depositará la carga. El área de descarga se ilumina)
+
+Robot: También hay que evaluar dónde va a quedar la carga. El lugar debe ser firme y nivelado, sin pendientes que puedan hacer que la carga ruede o se desplace después de apoyarla.
+
+(La cámara muestra el suelo firme y la zona despejada)
+
+Robot: Además, debe estar libre de obstáculos como escombros, charcos, cables sueltos u otros materiales. El área debe tener espacio suficiente para que el personal pueda maniobrar y retirarse de forma segura una vez colocada la carga.
+
+(Se ilumina el perímetro despejado alrededor del área de descarga)
+
+Robot: También es importante que el terreno esté seco y compacto, para que la carga no se hunda ni se desestabilice al apoyarla. Si el suelo está blando o mojado, hay que usar durmientes o plataformas de reparto.
+
+(Aparece panel "entendido")
+
+PASO 17 — CONFIRMACION CON EL OPERADOR DE GRUA
+(El usuario está en una zona de seguridad. Aparece una radio)
+
+Robot: Desde aquí, en la zona segura, debes confirmar cada instrucción con el Operador de la grúa. Toda orden crítica debe ser repetida y confirmada para evitar errores. Confirma las instrucciones con el operador para dar luz verde al Izaje.
+
+(Aparece un radio con un botón de confirmar.)
+(Una vez el usuario le dé confirmación, se activará la animación de Izaje. Después de terminado se seguirá a la última fase.)
+
+========================================
+FASE FINAL — CIERRE
+========================================
+
+PASO 18 — CONSECUENCIAS DEL INCUMPLIMIENTO
+(La escena cambia a una cinemática. El ambiente se vuelve oscuro)
+
+Robot: Has completado todos los pasos. Ahora observa qué ocurre cuando no se siguen estos protocolos.
+
+(Comienza la cinemática: la maniobra sale mal, la carga se desprende y el operario fallece)
+
+--- DIÁLOGO DE RADIO DURANTE EL ACCIDENTE ---
+(Solo la voz del testigo que observa desde lejos)
+
+— ¡Oye! ¡Oye! ¡Aléjate de ahí! ¡La carga se está moviendo!
+
+— ¿Me escuchas? ¡Contesta! ¡Oye!
+
+— (más fuerte) ¡Oye! ¡Deja el teléfono y sal de ahí! ¡Te digo que salgas!
+
+— (a otro compañero) ¡Oye, tú! ¡Tú, el de la grúa! ¡Párala! ¡Para todo! ¡Hay alguien abajo!
+
+— (de nuevo al teléfono, desesperado) ¡Oye! ¡Oye, por favor! ¡ESCÚCHAME! ¡SAL DE AHÍ!
+
+— (a otro) ¡Llama a alguien! ¡Diles que paren la maniobra! ¡Hay un hombre en la zona!
+
+— (gritando) ¡Oye! ¡Oye, mira arriba! ¡MIRA ARRIBA!
+
+— (voz quebrada, más bajo) No... no me escucha... no me escucha...
+
+— (pausa, apenas audible) Sigue en el teléfono...
+
+(La cinemática termina. Vuelve la luz)
+
+Robot: Cada paso que revisamos hoy existe para prevenir esto. La seguridad no es opcional. Gracias por completar la capacitación.
+
+(Aparece panel "Cerrar" y regresa al menú principal)

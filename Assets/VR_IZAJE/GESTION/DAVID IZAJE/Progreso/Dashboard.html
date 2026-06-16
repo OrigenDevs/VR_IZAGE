@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · VR Izaje</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#07070d;color:#dddde8;display:flex;flex-direction:column;align-items:center;padding:24px 16px}
+.container{max-width:1100px;width:100%}
+
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.header h1{font-size:1.3rem;color:#00c8ff;letter-spacing:-0.5px}
+.header .badge{background:rgba(0,200,255,0.08);color:#00c8ff;padding:4px 14px;border-radius:20px;font-size:0.75rem;border:1px solid rgba(0,200,255,0.12);font-weight:600}
+
+/* MEGA BAR */
+.mega-bar{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:14px;padding:16px 20px;margin-bottom:14px}
+.mega-bar .stats{display:flex;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:4px}
+.mega-bar .stat{text-align:center}
+.mega-bar .stat .num{font-size:1.5rem;font-weight:700}
+.mega-bar .stat .num.cyan{color:#00c8ff}
+.mega-bar .stat .num.green{color:#00ff64}
+.mega-bar .stat .num.gold{color:#ffc800}
+.mega-bar .stat .num.red{color:#ff5050}
+.mega-bar .stat .label{color:#606070;font-size:0.6rem;margin-top:1px;text-transform:uppercase;letter-spacing:0.3px}
+.bar-track{height:18px;background:#14141f;border-radius:9px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:9px;background:linear-gradient(90deg,#00c8ff,#0077ff);transition:width 0.8s ease;position:relative}
+.bar-fill.done{background:linear-gradient(90deg,#00ff64,#00cc50)}
+.bar-fill.pending{background:linear-gradient(90deg,#ffc800,#ff8800)}
+.bar-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08));border-radius:9px}
+.bar-label{display:flex;justify-content:space-between;margin-top:3px;font-size:0.6rem;color:#505060}
+
+/* CARDS GENERAL */
+.card{background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);border-radius:10px;padding:14px}
+.card h2{font-size:0.78rem;color:#00c8ff;margin-bottom:10px;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.5px}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:800px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* CALENDAR */
+.calendar{display:flex;gap:3px;margin-bottom:12px;flex-wrap:wrap}
+.cday{flex:1;min-width:44px;text-align:center;padding:5px 3px;border-radius:5px;font-size:0.55rem;background:rgba(255,255,255,0.012);border:1px solid rgba(255,255,255,0.03)}
+.cday .cdow{color:#505060;font-size:0.5rem}
+.cday .cnum{font-weight:700;font-size:0.7rem;margin:1px 0}
+.cday .cstat{font-size:0.5rem}
+.cday.done{border-color:rgba(0,255,100,0.15)}
+.cday.done .cstat{color:#00ff64}
+.cday.today{border-color:#00c8ff;background:rgba(0,200,255,0.04)}
+.cday.today .cstat{color:#00c8ff}
+.cday.lost{opacity:0.25;border-color:transparent}
+.cday.lost .cstat{color:#404050}
+.cday.weekend{opacity:0.25}
+.cday.weekend .cstat{color:#404050}
+.cday.next{border-color:rgba(255,200,0,0.08)}
+.cday.next .cstat{color:#ffc800}
+
+/* PHASES */
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:500px){.phase-grid{grid-template-columns:1fr}}
+.phase-item{background:rgba(255,255,255,0.012);border-radius:6px;padding:8px 10px}
+.phase-item .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.phase-item .top .name{font-size:0.68rem;font-weight:600;display:flex;align-items:center;gap:4px}
+.phase-item .top .pct{font-size:0.65rem;font-weight:700}
+.phase-item .top .pct.green{color:#00ff64}
+.phase-item .top .pct.red{color:#ff5050}
+.phase-item .pbar{height:6px;background:#14141f;border-radius:3px;overflow:hidden}
+.phase-item .pbar .fill{height:100%;border-radius:3px;transition:width 0.6s}
+
+/* TODO LIST */
+.todo-section{margin-bottom:8px}
+.todo-section:last-child{margin-bottom:0}
+.todo-section .phase-title{font-size:0.7rem;color:#ffc800;font-weight:600;margin-bottom:4px;padding:2px 0;border-bottom:1px solid rgba(255,200,0,0.08)}
+.todo-item{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:0.65rem;color:#909098}
+.todo-item .cb{width:12px;height:12px;border-radius:3px;border:1.5px solid #404058;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.45rem}
+.todo-item.done .cb{background:#00ff64;border-color:#00ff64;color:#000}
+.todo-item.done{color:#00ff64}
+
+/* TIMELINE MINI */
+.timeline{display:flex;flex-direction:column;gap:1px}
+.tday{display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;font-size:0.65rem}
+.tday .tdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tday .tdot.green{background:#00ff64;box-shadow:0 0 4px rgba(0,255,100,0.15)}
+.tday .tdot.blue{background:#00c8ff;box-shadow:0 0 4px rgba(0,200,255,0.2)}
+.tday .tdot.gray{background:#2a2a38}
+.tday .tdot.gold{background:#ffc800}
+.tday .tnum{color:#505060;font-weight:600;width:36px;flex-shrink:0;font-size:0.6rem}
+.tday .tlabel{color:#b0b0bc;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tday .tbar{width:40px;height:4px;background:#14141f;border-radius:2px;overflow:hidden;flex-shrink:0}
+.tday .tbar .fill{height:100%;border-radius:2px}
+.tday.lost{opacity:0.3}
+.tday.weekend{opacity:0.2}
+
+/* RISKS */
+.risk-row{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:4px;font-size:0.65rem;margin-bottom:3px}
+.risk-row .rdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.risk-row .rdot.high{background:#ff5050;box-shadow:0 0 4px rgba(255,80,80,0.2)}
+.risk-row .rdot.med{background:#ffc800;box-shadow:0 0 4px rgba(255,200,0,0.15)}
+.risk-row .rdot.ok{background:#00ff64;box-shadow:0 0 4px rgba(0,255,100,0.15)}
+.risk-row .rlab{color:#909098}
+
+.footer{text-align:center;color:#303040;font-size:0.55rem;margin-top:12px;padding:8px 0;border-top:1px solid rgba(255,255,255,0.02)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>VR Izaje · Capacitación</h1>
+  <span class="badge">VIE 12 JUN · 🎯 Entrega: 19 JUN</span>
+</div>
+
+<div class="calendar">
+  <div class="cday done"><div class="cdow">LUN</div><div class="cnum">1</div><div class="cstat">✅</div></div>
+  <div class="cday done"><div class="cdow">MAR</div><div class="cnum">2</div><div class="cstat">✅</div></div>
+  <div class="cday done"><div class="cdow">MIÉ</div><div class="cnum">3</div><div class="cstat">✅</div></div>
+  <div class="cday lost"><div class="cdow">JUE</div><div class="cnum">4</div><div class="cstat">—</div></div>
+  <div class="cday lost"><div class="cdow">VIE</div><div class="cnum">5</div><div class="cstat">—</div></div>
+  <div class="cday weekend"><div class="cdow">SÁB</div><div class="cnum">6</div><div class="cstat">—</div></div>
+  <div class="cday weekend"><div class="cdow">DOM</div><div class="cnum">7</div><div class="cstat">—</div></div>
+  <div class="cday done"><div class="cdow">LUN</div><div class="cnum">8</div><div class="cstat">✅</div></div>
+  <div class="cday done"><div class="cdow">MAR</div><div class="cnum">9</div><div class="cstat">✅</div></div>
+  <div class="cday done"><div class="cdow">MIÉ</div><div class="cnum">10</div><div class="cstat">—</div></div>
+  <div class="cday done"><div class="cdow">JUE</div><div class="cnum">11</div><div class="cstat">—</div></div>
+  <div class="cday today"><div class="cdow">VIE</div><div class="cnum">12</div><div class="cstat">🔴</div></div>
+  <div class="cday weekend"><div class="cdow">SÁB</div><div class="cnum">13</div><div class="cstat">—</div></div>
+  <div class="cday weekend"><div class="cdow">DOM</div><div class="cnum">14</div><div class="cstat">—</div></div>
+  <div class="cday next"><div class="cdow">LUN</div><div class="cnum">15</div><div class="cstat">⏳</div></div>
+  <div class="cday next"><div class="cdow">MAR</div><div class="cnum">16</div><div class="cstat">⏳</div></div>
+  <div class="cday next"><div class="cdow">MIÉ</div><div class="cnum">17</div><div class="cstat">⏳</div></div>
+  <div class="cday next"><div class="cdow">JUE</div><div class="cnum">18</div><div class="cstat">⏳</div></div>
+  <div class="cday next"><div class="cdow" style="color:#ffc800">VIE</div><div class="cnum" style="color:#ffc800">19</div><div class="cstat">🎯</div></div>
+</div>
+
+<div class="mega-bar">
+  <div class="stats">
+    <div class="stat"><div class="num cyan">7</div><div class="label">Días transcurridos</div></div>
+    <div class="stat"><div class="num green">5</div><div class="label">Días productivos ✅</div></div>
+    <div class="stat"><div class="num red">2</div><div class="label">Perdidos ⛔</div></div>
+    <div class="stat"><div class="num gold" style="color:#ffc800">6</div><div class="label">Días restantes</div></div>
+  </div>
+  <div class="bar-track" style="display:flex;gap:2px;background:transparent">
+    <div class="bar-fill done" style="width:38%;border-radius:9px 0 0 9px"></div>
+    <div class="bar-fill pending" style="width:15%"></div>
+    <div style="width:47%;background:#14141f;border-radius:0 9px 9px 0"></div>
+  </div>
+  <div class="bar-label">
+    <span>✅ Contenido completo · 🔶 Montaje Unity en curso</span>
+    <span>Meta: 19 JUN</span>
+  </div>
+</div>
+
+<div class="grid-2">
+  <!-- LEFT COLUMN -->
+  <div>
+    <!-- Phases -->
+    <div class="card" style="margin-bottom:12px">
+      <h2>📦 Áreas de trabajo</h2>
+      <div class="phase-grid">
+        <div class="phase-item"><div class="top"><span class="name">📋 Investigación</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">🎨 Modelado 3D</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">🖥️ UI / Canvas</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">🎤 Audios + SFX</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">📚 Biblioteca</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">🏗️ Escenarios</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">🎬 Animaciones</span><span class="pct green">100%</span></div><div class="pbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="phase-item"><div class="top"><span class="name">💻 Unity</span><span class="pct red">0%</span></div><div class="pbar"><div class="fill" style="width:0%;background:#ff5050"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="card">
+      <h2>📅 Días hábiles</h2>
+      <div class="timeline">
+        <div class="tday"><div class="tdot green"></div><span class="tnum">1</span><span class="tlabel">Investigación</span><div class="tbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="tday"><div class="tdot green"></div><span class="tnum">2</span><span class="tlabel">Arte 3D + UI</span><div class="tbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="tday lost"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Perdido: contratación</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday lost"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Perdido: contratación</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday weekend"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Fin de semana</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday weekend"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Fin de semana</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday"><div class="tdot green"></div><span class="tnum">3</span><span class="tlabel">Contenido</span><div class="tbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="tday"><div class="tdot green"></div><span class="tnum">4</span><span class="tlabel">Modelos + Biblioteca</span><div class="tbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="tday"><div class="tdot green"></div><span class="tnum">5</span><span class="tlabel">Anims + SFX</span><div class="tbar"><div class="fill" style="width:100%;background:#00ff64"></div></div></div>
+        <div class="tday today"><div class="tdot blue"></div><span class="tnum">6</span><span class="tlabel">🔥 HOY: Unity</span><div class="tbar"><div class="fill" style="width:0%;background:#00c8ff"></div></div></div>
+        <div class="tday weekend"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Finde</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday weekend"><div class="tdot gray"></div><span class="tnum">—</span><span class="tlabel">Finde</span><div class="tbar"><div class="fill" style="width:0%;background:#2a2a38"></div></div></div>
+        <div class="tday"><div class="tdot gold"></div><span class="tnum">7</span><span class="tlabel">Unity cont.</span><div class="tbar"><div class="fill" style="width:0%;background:#ffc800"></div></div></div>
+        <div class="tday"><div class="tdot gold"></div><span class="tnum">8</span><span class="tlabel">Pruebas</span><div class="tbar"><div class="fill" style="width:0%;background:#ffc800"></div></div></div>
+        <div class="tday"><div class="tdot gold"></div><span class="tnum">9</span><span class="tlabel">Correcciones</span><div class="tbar"><div class="fill" style="width:0%;background:#ffc800"></div></div></div>
+        <div class="tday"><div class="tdot gold"></div><span class="tnum">10</span><span class="tlabel">Build APK</span><div class="tbar"><div class="fill" style="width:0%;background:#ffc800"></div></div></div>
+        <div class="tday"><div class="tdot gold"></div><span class="tnum">🎯</span><span class="tlabel" style="color:#ffc800;font-weight:700">ENTREGA</span><div class="tbar"><div class="fill" style="width:0%;background:#ffc800"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: TODO DETALLADO -->
+  <div class="card">
+    <h2>📋 Tareas Unity · Pendientes</h2>
+
+    <div class="todo-section">
+      <div class="phase-title">🎬 FASE 1 — ANIMACIONES</div>
+      <div class="todo-item"><span class="cb">○</span> Importar animaciones de grúa a Unity</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar Animator Controller robot</div>
+      <div class="todo-item"><span class="cb">○</span> Prefabricar NPCs con NPCPatrol</div>
+      <div class="todo-item"><span class="cb">○</span> Asignar animaciones idle / walk a NPCs</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar cinemática del accidente</div>
+    </div>
+
+    <div class="todo-section">
+      <div class="phase-title">🔊 FASE 2 — AUDIO</div>
+      <div class="todo-item"><span class="cb">○</span> Importar pistas de audio (32 diálogos)</div>
+      <div class="todo-item"><span class="cb">○</span> Asignar audios a DialogSystemVR</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar SFX de ambiente (grúa, viento)</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar audio de radio (escena accidente)</div>
+    </div>
+
+    <div class="todo-section">
+      <div class="phase-title">🏗️ FASE 3 — ESCENA</div>
+      <div class="todo-item"><span class="cb">○</span> Colocar modelos 3D en escena</div>
+      <div class="todo-item"><span class="cb">○</span> Asignar prefabs desde PREFABS/</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar iluminación / cielo</div>
+      <div class="todo-item"><span class="cb">○</span> Ubicar puntos A/B para NPCs</div>
+    </div>
+
+    <div class="todo-section">
+      <div class="phase-title">💻 FASE 4 — CÓDIGO</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar StepManager con 18 pasos</div>
+      <div class="todo-item"><span class="cb">○</span> Crear StepData para cada paso</div>
+      <div class="todo-item"><span class="cb">○</span> Conectar botón "Entendido" con UI</div>
+      <div class="todo-item"><span class="cb">○</span> Conectar eventos de cada paso</div>
+      <div class="todo-item"><span class="cb">○</span> Configurar flujo: Fase 1 → 2 → 3 → 4</div>
+    </div>
+
+    <div class="todo-section">
+      <div class="phase-title">🎯 FASE 5 — INTEGRACIÓN + PRUEBAS</div>
+      <div class="todo-item"><span class="cb">○</span> Probar flujo completo en modo escritorio</div>
+      <div class="todo-item"><span class="cb">○</span> Corregir bugs de navegación</div>
+      <div class="todo-item"><span class="cb">○</span> Verificar que todos los audios se escuchen</div>
+      <div class="todo-item"><span class="cb">○</span> Verificar transiciones entre fases</div>
+      <div class="todo-item"><span class="cb">○</span> Build APK (si alcanza tiempo)</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h2>⚠️ Riesgos</h2>
+    <div class="risk-row"><div class="rdot ok"></div><span>Contenido 100% listo ✅</span></div>
+    <div class="risk-row"><div class="rdot med"></div><span>Unity 0% · 6 días hábiles para integrar</span></div>
+    <div class="risk-row"><div class="rdot med"></div><span>Pruebas VR → pueden quedar fuera</span></div>
+    <div class="risk-row"><div class="rdot ok"></div><span>Meta realista: demo escritorio funcional</span></div>
+  </div>
+  <div class="card">
+    <h2>🎯 Prioridades</h2>
+    <div class="todo-item done"><span class="cb">✓</span> Contenido: modelos, UI, audios, anims, SFX</div>
+    <div class="todo-item"><span class="cb">○</span> FASE 1: Animaciones en Unity</div>
+    <div class="todo-item"><span class="cb">○</span> FASE 2: Audio + SFX</div>
+    <div class="todo-item"><span class="cb">○</span> FASE 3: Escena + modelos</div>
+    <div class="todo-item"><span class="cb">○</span> FASE 4: Código + flujo de pasos</div>
+    <div class="todo-item"><span class="cb">○</span> FASE 5: Pruebas + build</div>
+  </div>
+</div>
+
+<div class="footer">
+  VR Izaje · Capacitación en Realidad Virtual · 12 → 19 JUN 2026
+</div>
+
+</div>
+</body>
+</html>

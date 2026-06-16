@@ -1,0 +1,32 @@
+LISTA SIMPLE DE MODELOS 3D NECESARIOS — Capacitación de Izaje VR
+================================================================
+(Solo nombres, ordenados por prioridad, sin separación por pasos)
+
+
+3. Mesa de inspección
+4. Maqueta interactiva
+5. Rigger (figura humana)
+6. Operador de grúa (figura humana)
+
+10. Almohadillas de estabilizador
+11. Obstáculos (cajas, barriles, tubos)
+
+13. Cinta de seguridad
+14. Celular 3D
+15. Figuras de personal
+
+22. Eslinga textil
+23. Eslinga de cable de acero
+24. Eslinga de cadena
+25. Grillete recto
+26. Grillete de lira
+27. Gancho con pestillo
+28. Anilla maestra
+29. Cáncamo
+30. Eslinga dañada
+31. Grillete dañado
+
+32. Radio / walkie-talkie
+33. Videocámara
+34. Anemómetro
+35. Durmientes / plataformas de reparto

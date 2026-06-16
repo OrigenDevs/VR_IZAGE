@@ -1,0 +1,71 @@
+PROMPTS PARA TEXTURAS DE DOCUMENTOS Y CERTIFICADOS
+===================================================
+IMPORTANTE: NO incluir fechas visibles — se pondran dinamicamente desde Unity
+IMPORTANTE: SIN bordes negros ni efecto de escaner — la hoja debe ocupar toda la imagen
+IMPORTANTE: Solo los campos de fecha deben estar en blanco (linea), todo lo demas escrito
+IMPORTANTE: La fotografia de la persona debe ser FOTO REALISTA, no ilustracion ni dibujo
+Generar con Nanobanana (o similar) — imagenes de 1024x1024 minimo
+Cada imagen debe verse como el documento original impreso, ocupando toda la imagen,
+sin bordes, sin margenes negros, sin sombreado perimetral, a sangre completa.
+
+===================================================
+1. CERTIFICADO DEL RIGGER (Paso 2)
+===================================================
+Prompt:
+Documento impreso en hoja blanca tamaño carta, ocupando toda la imagen sin bordes, texto en español negro, diseño formal de certificado. En la parte superior centrado: "CERTIFICADO DE RIGGER" en letras grandes negritas. Debajo una linea delgada. Luego: "Certificado N°: RG-2026-0047". A la izquierda: "Otorgado a: JUAN CARLOS MARTINEZ GONZALEZ", "RUT: 15.478.632-4", "Curso: OPERACIONES DE IZAJE Y SEÑALIZACION", "Duración: 40 horas pedagógicas". En la esquina superior derecha una foto carnet REALISTA de un hombre adulto (no ilustracion, no dibujo, foto real de una persona real con casco y chaleco reflectante). Luego: "Emitido por: INSTITUTO DE SEGURIDAD INDUSTRIAL ISL", "Vigencia desde: _____________", "Vigencia hasta: _____________" SOLO ESTOS DOS CAMPOS EN BLANCO CON LINEA. Abajo: "Firma del Supervisor: _________________________" con una raya para firma. A la derecha un sello circular oficial con escudo al centro y texto alrededor "INSTITUTO DE SEGURIDAD INDUSTRIAL - ISL". Todo con tipografia formal tipo Arial o Times New Roman, color negro sobre blanco, iluminacion uniforme, aspecto de documento original impreso en impresora laser, alta definicion, textura plana para modelo 3D, orientacion vertical. Sin bordes, sin marco, sin sombras, sin efecto escaneado.
+
+===================================================
+2. CERTIFICADO DE GRUA MOVIL (Paso 3)
+===================================================
+Prompt:
+Documento impreso en hoja blanca, ocupando toda la imagen sin bordes, texto en español negro. Titulo grande centrado en negritas: "CERTIFICADO DE OPERACION DE GRUA MOVIL". Debajo linea delgada. Luego: "Certificado N°: CG-2026-0183". Texto: "El organismo certificador acreditado CERTILIFT S.A. certifica que el equipo abajo indicado cumple con los requisitos de operacion segura segun normativa vigente." Datos del equipo: "Marca: Liebherr", "Modelo: LTM-1050", "N° de Serie: LTM-1050-4892", "Capacidad Maxima: 50 toneladas", "Tipo: Grua movil hidraulica con pluma telescopica", "Año de fabricacion: 2022". Luego: "Vigencia del certificado: _____________" UNICO CAMPO EN BLANCO CON LINEA. Abajo: "Organismo Certificador: CERTILIFT S.A.", "Registro N°: OC-2022-0157". Firma del ingeniero responsable con raya: "Ing. Roberto Muñoz Araya". Sello circular oficial con numero de registro. Tipografia formal, color negro sobre blanco, iluminacion uniforme, aspecto de documento original impreso, textura plana para modelo 3D, orientacion vertical. Sin bordes, sin marco, sin efecto escaneado.
+
+===================================================
+3. CERTIFICADO DE MANTENIMIENTO (Paso 4)
+===================================================
+Prompt:
+Documento impreso en hoja blanca, ocupando toda la imagen sin bordes, texto en español negro. Titulo grande centrado en negritas: "CERTIFICADO DE MANTENIMIENTO". Al lado del titulo un icono pequeño de llave inglesa. Debajo linea delgada. "Certificado N°: CM-2026-0092". "Equipo: Grua Liebherr LTM-1050", "N° Serie: LTM-1050-4892". Checklist con casillas marcadas con palomita verde: "☑ Mantenimiento preventivo realizado", "☑ Mantenimiento correctivo realizado", "☑ Inspeccion de componentes estructurales", "☑ Prueba de funcionamiento", "☑ Revision de sistemas de seguridad". Luego: "Fecha de ultimo mantenimiento: _____________", "Fecha del proximo mantenimiento: _____________" SOLO ESTOS DOS CAMPOS EN BLANCO CON LINEA. "Taller: SERVICIO TECNICO IZAJE SPA", "Tecnico a cargo: Carlos Mendoza Rojas", firma con raya y sello del taller de mantenimiento. Tipografia formal, color negro sobre blanco, iluminacion uniforme, aspecto de documento original impreso, textura plana para modelo 3D, orientacion vertical. Sin bordes, sin marco, sin efecto escaneado.
+
+===================================================
+4. CALENDARIO DE MANTENIMIENTO (Paso 4)
+===================================================
+Prompt:
+Hoja de calendario de pared tamaño A4, ocupando toda la imagen sin bordes, fondo blanco. Titulo grande en la parte superior: "CALENDARIO DE MANTENIMIENTO". Debajo: "Equipo: Grua Liebherr LTM-1050". Luego una cuadricula de calendario mensual completa con los numeros de cada dia del mes visibles, los nombres de los dias de la semana (Lun, Mar, Mie, Jue, Vie, Sab, Dom) en la fila superior. El mes y año escritos arriba de la cuadricula, por ejemplo "Junio 2026". NO debe tener ningun dia marcado, sin circulos, sin palomitas, sin resaltados. En la parte superior de la hoja un pequeño agujero circular de anilla para simular que esta colgado. Aspecto realista de hoja de calendario impresa, texto negro, cuadricula gris suave, textura plana orientacion vertical. Sin bordes, sin marco.
+
+===================================================
+5. PLAN DE IZAJE APROBADO (Paso 5)
+===================================================
+Prompt:
+Documento impreso en hoja blanca, ocupando toda la imagen sin bordes, texto en español negro. Titulo grande centrado en negritas: "PLAN DE IZAJE". Debajo linea delgada. "N°: PI-2026-0031", "Proyecto: Instalacion de equipos industriales", "Ubicacion: Planta Industrial Norte". Un diagrama esquematico simple en la parte central: dibujo de una grua con pluma inclinada levantando una carga rectangular, lineas punteadas mostrando angulos, distancias anotadas como "R=12m", "H=8m". A la derecha del diagrama una tabla con datos: "Peso de carga: 1.500 kg", "Altura de izaje: 8 metros", "Radio de operacion: 12 metros", "Angulo de pluma: 60°", "Equipo: Grua Liebherr LTM-1050", "Accesorios: Eslingas textiles 60mm (x2), Grilletes 2 ton (x2)", "Rigger asignado: Juan Carlos Martinez", "Operador: Pedro Ramirez Soto". Luego: "Fecha de aprobacion: _____________" UNICO CAMPO EN BLANCO CON LINEA. Un sello grande circular de color rojo cruzando parte del documento que dice "APROBADO" en letras grandes. Abajo firma con raya: "Firma del Supervisor Calificado". Tipografia formal, color negro sobre blanco, iluminacion uniforme, aspecto de documento original impreso, textura plana para modelo 3D, orientacion vertical. Sin bordes, sin marco, sin efecto escaneado.
+
+===================================================
+6. MEMORIA DE CALCULO / CERTIFICACION DE ELEMENTOS DE IZAJE (Paso 12)
+===================================================
+Prompt:
+Documento impreso en hoja blanca, ocupando toda la imagen sin bordes, texto en español negro. Titulo grande centrado en negritas: "MEMORIA DE CALCULO Y CERTIFICACION DE ELEMENTOS DE IZAJE". Debajo linea delgada. "N°: MC-2026-0078", "Cliente: Capacitacion VR Izaje". Luego una tabla con bordes delgados grises con las siguientes columnas y filas escritas exactamente:
+
+"Elemento" | "Capacidad Maxima (kg)" | "Factor de Seguridad" | "Fecha Certificacion" | "Estado"
+"Eslinga textil 60mm verde" | "2.000" | "5:1" | "_____________" | "APTO"
+"Eslinga cable acero 12mm" | "3.200" | "5:1" | "_____________" | "APTO"
+"Eslinga cadena 8mm" | "4.000" | "4:1" | "_____________" | "APTO"
+"Grillete recto 5/8" | "2.000" | "5:1" | "_____________" | "APTO"
+"Grillete lira 3/4" | "3.000" | "5:1" | "_____________" | "APTO"
+"Gancho con pestillo" | "2.500" | "4:1" | "_____________" | "APTO"
+"Anilla maestra 50mm" | "6.000" | "5:1" | "_____________" | "APTO"
+"Cancamo M20" | "2.000" | "5:1" | "_____________" | "APTO"
+
+SOLO LAS CELDAS DE "Fecha Certificacion" EN BLANCO CON LINEA, todo lo demas escrito. Abajo de la tabla: "Observaciones: Todos los elementos cumplen con los requisitos de resistencia y factor de seguridad establecidos en la normativa vigente." Luego firma: "Ing. Roberto Muñoz Araya", "Ingeniero Civil Mecanico", "RUT: 12.345.678-9", sello circular de la institucion certificadora. Tipografia formal tipo Courier New o Arial, color negro sobre blanco, aspecto tecnico profesional, iluminacion uniforme, textura plana vertical. Sin bordes, sin marco, sin efecto escaneado.
+
+===================================================
+INSTRUCCIONES DE USO
+===================================================
+- Cada imagen generada se usara como textura Diffuse/Albedo sobre un modelo 3D de hoja
+  (cuadruple plano rectangular con subdivisiones)
+- Escalar la textura en UV para que ocupe toda la hoja 3D
+- En Unity, se superpondran objetos TextMeshPro 3D sobre los campos de fecha en blanco,
+  usando System.DateTime.Now para mostrar la fecha actual del sistema
+- Las texturas deben ir a sangre completa (full bleed), SIN bordes ni margenes
+- El modelo 3D de la hoja ya tiene su propio desgaste en UV, no agregar en textura
+- La foto del Rigger debe ser FOTO REALISTA de una persona real, no ilustracion
+- Las texturas deben tener resolucion 1024x1024 o mayor, formato PNG
+- Estilo: "printed document", "documento original impreso"

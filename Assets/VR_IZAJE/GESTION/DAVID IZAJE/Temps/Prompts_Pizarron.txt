@@ -1,0 +1,113 @@
+PROMPTS PARA IMÁGENES DE PIZARRÓN — Capacitación de Izaje VR
+=============================================================
+Estilo único para todas: dibujo explicativo con trazos blancos sobre fondo negro plano liso. Sin texturas, sin marcos, sin bordes. Trazos simples y limpios, estilo diagrama técnico esquemático. Sin texto. Misma composición y estilo en todas. Sin robots ni personajes. Solo diagramas, objetos, flechas, iconos esquemáticos.
+
+--- MENÚ PRINCIPAL ---
+
+1. MENÚ PRINCIPAL
+Boceto esquemático de un centro de entrenamiento virtual con varios módulos representados como paneles rectangulares iluminados, uno más brillante que el resto, con una flecha curva señalándolo. — white line drawing on flat dark background, schematic virtual training center with several illuminated rectangular panels, one panel brighter than others, curved arrow pointing at it, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- INTRODUCCIÓN ---
+
+2. INTRODUCCIÓN — Módulo de izaje
+Boceto de cuatro iconos esquemáticos en secuencia horizontal: un documento, una maqueta, una mesa y un terreno al aire libre, con una flecha que los conecta de izquierda a derecha. — white line drawing on flat dark background, four schematic icons in horizontal sequence: document, miniature model, work table, outdoor terrain, arrow connecting them left to right, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- FASE 1: DOCUMENTACIÓN ---
+
+3. PASO 1 — Izaje: Rigger y Operador
+Boceto de una grúa simple con gancho levantando una carga, y dos figuras esquemáticas debajo: una con un brazo levantado dando señales, otra sentada en una cabina. — white line drawing on flat dark background, simple crane with hook lifting a load, two schematic figures below, one with raised arm giving signals, one sitting in cabin, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+4. PASO 2 — Certificación del Rigger
+Boceto de un documento con bordes dentados y un sello circular, y una figura esquemática al lado con casco y un brazo extendido. — white line drawing on flat dark background, document with serrated edges and circular seal, schematic figure beside it with hard hat and extended arm, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+5. PASO 3 — Certificación de la Grúa Móvil
+Boceto de una grúa sobre ruedas con una pluma y gancho, y un documento flotando sobre ella con un sello. — white line drawing on flat dark background, mobile crane on wheels with boom and hook, document floating above it with seal, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+6. PASO 4 — Mantenimiento al Día
+Boceto de un engranaje junto a un calendario con marcas de check en varias fechas, y una llave inglesa cruzada debajo. — white line drawing on flat dark background, gear next to calendar with checkmarks on several dates, wrench crossed below, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+7. PASO 5 — Aprobación del Plan de Izaje
+Boceto de un documento desplegado con una línea de firma al pie y un sello circular grande encima. — white line drawing on flat dark background, unfolded document with signature line at bottom and large circular stamp on top, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- FASE 2: MAQUETA INTERACTIVA ---
+
+8. PASO 6 — Estabilización de la Grúa
+Boceto de una grúa en miniatura sobre una base cuadriculada con los estabilizadores extendidos hacia los lados. — white line drawing on flat dark background, miniature crane on grid base with outriggers extended sideways, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+9. PASO 6b — Estabilizadores al 100%
+Boceto de un estabilizador visto de cerca: brazo extendido apoyado sobre una almohadilla rectangular, flecha vertical hacia abajo marcando presión contra el suelo. — white line drawing on flat dark background, close-up of outrigger: extended arm resting on rectangular pad, downward arrow marking pressure against ground, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+10. PASO 7 — Centro de Gravedad
+Boceto de una carga rectangular con una línea vertical punteada en el centro y un punto negro, flechas curvas a los lados mostrando desbalance. — white line drawing on flat dark background, rectangular load with dotted vertical line in center and black dot, curved arrows on sides showing imbalance, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+11. PASO 7b — Libre de Empotramiento
+Boceto de la misma carga rodeada de obstáculos (cajas, barriles) con líneas de tachado, y una flecha hacia arriba desde la carga. — white line drawing on flat dark background, same load surrounded by obstacles (boxes, barrels) with cross-out lines, upward arrow from the load, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+12. PASO 8 — Área Segregada y Señalizada
+Boceto de un perímetro con línea discontinua, conos en las esquinas y cinta de seguridad alrededor. — white line drawing on flat dark background, perimeter with dashed line, cones at corners and safety tape around, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+13. PASO 8b — Área de Proyección
+Boceto del mismo perímetro con un círculo punteado más grande alrededor y flechas diagonales desde el centro hacia el suelo. — white line drawing on flat dark background, same perimeter with larger dotted circle around it and diagonal arrows from center toward ground, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+14. PASO 9 — Zonas Restringidas
+Boceto de un área delimitada con conos, varias figuras esquemáticas fuera del área, y una línea roja marcando el límite que no deben cruzar. — white line drawing on flat dark background, delimited area with cones, several schematic figures outside the area, red line marking boundary they must not cross, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+15. PASO 9b — Informar al Personal
+Boceto de varias figuras esquemáticas alrededor de un ícono de notificación con ondas expandiéndose hacia ellas. — white line drawing on flat dark background, several schematic figures around a notification icon with waves expanding toward them, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- FASE 3: MESA DE INSPECCIÓN ---
+
+16. PASO 10 — Inspección de Equipos
+Boceto de una mesa con varios elementos de seguridad dibujados: casco, guantes, arnés, gafas y una lista con checks junto a ellos. — white line drawing on flat dark background, table with several safety items drawn: hard hat, gloves, harness, goggles, checklist with checks beside them, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+17. PASO 11 — Accesorios de Izaje (CMU / WLL)
+Boceto de varios accesorios de izaje: eslinga, grillete, gancho, anilla, cada uno con una etiqueta rectangular pequeña al lado. — white line drawing on flat dark background, various rigging accessories: sling, shackle, hook, ring, each with small rectangular tag beside it, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+18. PASO 11b — Tres Tipos de Eslingas
+Boceto de tres eslingas en paralelo: una textil (cinta plana), una de cable (trenzado en espiral), una de cadena (eslabones redondos). — white line drawing on flat dark background, three slings in parallel: flat textile tape, spiral wire rope, round chain links, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+19. PASO 11c — Grilletes, Ganchos, Anillas, Cáncamos
+Boceto detallado de un grillete recto, uno de lira (forma de pera), un gancho con pestillo, una anilla circular con ramales, un cáncamo con rosca. — white line drawing on flat dark background, detailed drawing of straight shackle, pear-shaped shackle, hook with latch, circular ring with legs, threaded eye bolt, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+20. PASO 11d — Ejemplo de Selección
+Boceto de una carga rectangular con dos eslingas en ángulo de 45 grados conectadas a un gancho, una etiqueta junto a las eslingas. — white line drawing on flat dark background, rectangular load with two slings at 45-degree angle connected to a hook, small label beside slings, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+21. PASO 12 — Elemento Dañado
+Boceto de dos elementos de izaje lado a lado: uno con líneas de fisura y deformación, otro intacto, con un check sobre el intacto. — white line drawing on flat dark background, two rigging elements side by side: one with crack lines and deformation, one intact, check mark over the intact one, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+22. PASO 12b — Seleccionar Elemento Seguro
+Boceto de dos elementos: uno marcado con una X grande, otro con un check grande, una flecha señalando al del check. — white line drawing on flat dark background, two elements: one with large X mark, one with large check mark, arrow pointing at the one with check, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+23. PASO 13 — Comunicación Rigger-Operador
+Boceto de tres iconos: una radio con ondas de transmisión, una videocámara apuntando, una mano haciendo señas, con una línea punteada conectándolos. — white line drawing on flat dark background, three icons: radio with transmission waves, video camera pointing, hand making signals, dotted line connecting them, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+24. PASO 14 — Protocolo de Comunicación
+Boceto de un celular con ondas de notificación expandiéndose hacia varias figuras esquemáticas alrededor. — white line drawing on flat dark background, phone with notification waves expanding toward several schematic figures around it, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- FASE 4: CAMPO ---
+
+25. PASO 15 — Verificación Climática
+Boceto de un anemómetro de mano con aspas, junto a iconos de viento (líneas curvas), lluvia (gotas tachadas) y niebla (nubes). — white line drawing on flat dark background, handheld anemometer with blades, beside icons of wind (curved lines), rain (crossed-out drops), fog (clouds), no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+26. PASO 15b — Clima Adecuado
+Boceto de un sol con nubes ligeras y un check grande al lado. — white line drawing on flat dark background, sun with light clouds and large check mark beside it, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+27. PASO 16 — Terreno Firme y Nivelado
+Boceto de un terreno con superficie plana, una línea recta horizontal indicando nivel, una carga apoyada en el centro. — white line drawing on flat dark background, ground with flat surface, straight horizontal line indicating level, load placed in center, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+28. PASO 16b — Libre de Obstáculos
+Boceto del mismo terreno con objetos tachados alrededor (escombro, charco, cable), área limpia en el centro, espacio alrededor para figuras esquemáticas. — white line drawing on flat dark background, same terrain with crossed-out objects around (debris, puddle, cable), clean area in center, space around for schematic figures, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+29. PASO 16c — Terreno Seco y Compacto
+Boceto de un corte del suelo mostrando capas compactas, superficie seca con textura, y durmientes de madera bajo una carga. — white line drawing on flat dark background, ground cross-section showing compacted layers, dry surface texture, wooden sleepers under a load, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+30. PASO 17 — Confirmar con Operador
+Boceto de una radio con un botón grande, ondas bidireccionales entre dos puntos, una flecha verde marcando "luz verde". — white line drawing on flat dark background, radio with large button, bidirectional waves between two points, green arrow marking green light, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+--- FASE FINAL: CIERRE ---
+
+31. PASO 18 — Consecuencias
+Boceto del pizarrón dividido en dos: lado izquierdo con un izaje ordenado, lado derecho con una carga cayendo en pedazos y líneas de impacto. — white line drawing on flat dark background, board split in two: left side with orderly lift, right side with load falling apart and impact lines, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background
+
+32. PASO 18b — Seguridad no es Opcional
+Boceto de una secuencia de 18 pequeños iconos en línea (viñetas) con un check en cada uno, y un círculo rodeando todo el conjunto. — white line drawing on flat dark background, sequence of 18 small icons in a line with check on each one, circle enclosing the whole set, no text | negative prompt: no text, no blackboard, no frame, no board texture, no chalk texture, no photography, no 3D render, no photorealistic style, no wooden frame, no borders, only flat simple line drawing on solid dark background

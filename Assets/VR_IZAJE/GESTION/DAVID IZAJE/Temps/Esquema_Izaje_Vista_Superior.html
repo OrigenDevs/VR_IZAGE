@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Esquema de Izaje — Vista Superior</title>
+<style>
+body{background:#1a1a2e;font-family:Calibri,sans-serif;color:#ddd;margin:0;padding:20px;display:flex;flex-direction:column;align-items:center}
+h1{color:#fff;font-size:20pt;margin-bottom:4pt}
+.sub{color:#888;font-size:10pt;margin-bottom:20pt}
+.container{background:#0d0d1a;border:1px solid #333;border-radius:12px;padding:20px;max-width:1000px;width:100%}
+svg{width:100%;height:auto;display:block}
+.leyenda{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;padding:12px;background:#111122;border-radius:8px;border:1px solid #2a2a3e}
+.leyenda-item{display:flex;align-items:center;gap:6px;font-size:9pt;color:#aaa}
+.leyenda-color{width:16px;height:16px;border-radius:3px}
+.nota{color:#666;font-size:8pt;margin-top:12px;text-align:center;font-style:italic}
+</style>
+</head>
+<body>
+<h1>Esquema de Izaje — Vista Superior</h1>
+<p class="sub">Distribución del área de trabajo con elementos de seguridad. Escala aproximada. Usar como referencia para montar la escena 3D en Unity.</p>
+<div class="container">
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Fondo del terreno -->
+  <rect x="0" y="0" width="800" height="700" fill="#1a1a2e" rx="8"/>
+
+  <!-- === ÁREA SEGREGADA EXTERIOR (perímetro total) === -->
+  <rect x="80" y="60" width="640" height="580" fill="none" stroke="#ff4444" stroke-width="2" stroke-dasharray="12,6" rx="4" opacity="0.5"/>
+  <text x="88" y="52" fill="#ff4444" font-size="8" opacity="0.6">PERÍMETRO DE SEGURIDAD — Prohibido el ingreso sin autorización</text>
+
+  <!-- === ÁREA DE PROYECCIÓN DE CARGA (cono de caída) === -->
+  <circle cx="380" cy="320" r="160" fill="none" stroke="#ff8800" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+  <text x="510" y="175" fill="#ff8800" font-size="7" opacity="0.5">Área de proyección de carga</text>
+  <line x1="300" y1="200" x2="380" y2="320" stroke="#ff8800" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="460" y1="200" x2="380" y2="320" stroke="#ff8800" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="300" y1="440" x2="380" y2="320" stroke="#ff8800" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="460" y1="440" x2="380" y2="320" stroke="#ff8800" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+
+  <!-- === ZONA DE IZAJE (área de trabajo principal) === -->
+  <rect x="180" y="160" width="400" height="320" fill="rgba(255,200,0,0.04)" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="8,4" rx="2"/>
+  <text x="188" y="154" fill="#ffcc00" font-size="7" opacity="0.5">ZONA DE IZAJE</text>
+
+  <!-- === ESLINGAS (líneas desde grúa a carga) === -->
+  <line x1="380" y1="300" x2="340" y2="370" stroke="#aaa" stroke-width="2"/>
+  <line x1="380" y1="300" x2="420" y2="370" stroke="#aaa" stroke-width="2"/>
+
+  <!-- === CARGA === -->
+  <rect x="325" y="370" width="110" height="70" fill="#555" stroke="#888" stroke-width="2" rx="3"/>
+  <text x="340" y="410" fill="#ccc" font-size="9" text-anchor="middle">CARGA</text>
+  <text x="380" y="422" fill="#888" font-size="7" text-anchor="middle">1500 kg</text>
+  <!-- Centro de gravedad -->
+  <circle cx="380" cy="405" r="3" fill="#ffcc00"/>
+  <line x1="380" y1="395" x2="380" y2="415" stroke="#ffcc00" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- === GRÚA === -->
+  <rect x="345" y="265" width="70" height="50" fill="#446" stroke="#88a" stroke-width="2" rx="4"/>
+  <text x="380" y="295" fill="#aac" font-size="8" text-anchor="middle">GRÚA MÓVIL</text>
+  <!-- Cabina -->
+  <rect x="350" y="270" width="25" height="20" fill="#335" stroke="#668" stroke-width="1" rx="2"/>
+  <!-- Pluma (brazo) hacia arriba en vista superior = círculo base -->
+  <circle cx="380" cy="290" r="8" fill="none" stroke="#88a" stroke-width="1.5"/>
+  
+  <!-- === ESTABILIZADORES (OUTRIGGERS) === -->
+  <!-- Izquierda -->
+  <rect x="295" y="280" width="50" height="6" fill="#668" stroke="#88a" stroke-width="1" rx="1"/>
+  <rect x="285" y="274" width="14" height="18" fill="#556" stroke="#88a" stroke-width="1" rx="2"/>
+  <!-- Derecha -->
+  <rect x="415" y="280" width="50" height="6" fill="#668" stroke="#88a" stroke-width="1" rx="1"/>
+  <rect x="461" y="274" width="14" height="18" fill="#556" stroke="#88a" stroke-width="1" rx="2"/>
+  <!-- Abajo -->
+  <rect x="355" y="315" width="50" height="6" fill="#668" stroke="#88a" stroke-width="1" rx="1" transform="rotate(90 380 318)"/>
+  <!-- Arriba - no needed, crane is oriented "forward" up -->
+
+  <!-- === CONOS DE SEGURIDAD (perímetro zona de izaje) === -->
+  <!-- Esquina superior izquierda -->
+  <polygon points="175,155 185,155 180,165" fill="#ff6600" stroke="#fff" stroke-width="1"/>
+  <rect x="177" y="165" width="6" height="2" fill="#fff"/>
+  <!-- Esquina superior derecha -->
+  <polygon points="575,155 585,155 580,165" fill="#ff6600" stroke="#fff" stroke-width="1"/>
+  <rect x="577" y="165" width="6" height="2" fill="#fff"/>
+  <!-- Esquina inferior izquierda -->
+  <polygon points="175,475 185,475 180,485" fill="#ff6600" stroke="#fff" stroke-width="1"/>
+  <rect x="177" y="485" width="6" height="2" fill="#fff"/>
+  <!-- Esquina inferior derecha -->
+  <polygon points="575,475 585,475 580,485" fill="#ff6600" stroke="#fff" stroke-width="1"/>
+  <rect x="577" y="485" width="6" height="2" fill="#fff"/>
+
+  <!-- === CONOS ADICIONALES en perímetro exterior === -->
+  <polygon points="75,55 85,55 80,65" fill="#ff6600" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="715,55 725,55 720,65" fill="#ff6600" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="75,635 85,635 80,645" fill="#ff6600" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="715,635 725,635 720,645" fill="#ff6600" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- === CINTA DE SEGURIDAD (línea entre conos internos) === -->
+  <line x1="180" y1="160" x2="580" y2="160" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="180" y1="480" x2="580" y2="480" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="180" y1="160" x2="180" y2="480" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="580" y1="160" x2="580" y2="480" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- === ZONA SEGURA DE PERSONAL (área de espera) === -->
+  <rect x="600" y="520" width="140" height="100" fill="rgba(0,200,0,0.06)" stroke="#00cc44" stroke-width="1.5" rx="4"/>
+  <text x="620" y="540" fill="#00cc44" font-size="8">ZONA SEGURA</text>
+  <text x="620" y="552" fill="#00cc44" font-size="6" opacity="0.7">Personal autorizado</text>
+  <!-- Figuras en zona segura -->
+  <circle cx="630" cy="575" r="6" fill="none" stroke="#0c6" stroke-width="1"/>
+  <line x1="630" y1="581" x2="630" y2="595" stroke="#0c6" stroke-width="1"/>
+  <line x1="624" y1="587" x2="636" y2="587" stroke="#0c6" stroke-width="1"/>
+  <text x="630" y="608" fill="#0c6" font-size="6" text-anchor="middle">Rigger</text>
+
+  <circle cx="670" cy="575" r="6" fill="none" stroke="#0c6" stroke-width="1"/>
+  <line x1="670" y1="581" x2="670" y2="595" stroke="#0c6" stroke-width="1"/>
+  <line x1="664" y1="587" x2="676" y2="587" stroke="#0c6" stroke-width="1"/>
+  <text x="670" y="608" fill="#0c6" font-size="6" text-anchor="middle">Personal</text>
+
+  <!-- === DIRECCIÓN DEL VIENTO (para paso 15) === -->
+  <line x1="650" y1="80" x2="700" y2="80" stroke="#0af" stroke-width="1.5" opacity="0.4"/>
+  <polygon points="700,75 700,85 710,80" fill="#0af" opacity="0.4"/>
+  <text x="640" y="95" fill="#0af" font-size="7" opacity="0.4">Viento →</text>
+
+  <!-- === ÁREA DE DESCARGA (drop zone - paso 16) === -->
+  <rect x="610" y="160" width="100" height="70" fill="rgba(0,200,255,0.04)" stroke="#00aaff" stroke-width="1.5" stroke-dasharray="6,3" rx="3"/>
+  <text x="615" y="178" fill="#00aaff" font-size="7">ÁREA DE</text>
+  <text x="615" y="190" fill="#00aaff" font-size="7">DESCARGA</text>
+  <text x="660" y="240" fill="#00aaff" font-size="6" opacity="0.5">Firme · Nivelado · Seco</text>
+
+  <!-- === FLECHA DE MOVIMIENTO DE CARGA (trayectoria) === -->
+  <path d="M 380,370 Q 400,300 660,195" fill="none" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#ffcc00" opacity="0.4"/>
+    </marker>
+  </defs>
+
+  <!-- === DISTANCIAS (medidas ilustrativas) === -->
+  <!-- Ancho de zona de izaje -->
+  <line x1="180" y1="140" x2="580" y2="140" stroke="#666" stroke-width="0.8"/>
+  <line x1="180" y1="135" x2="180" y2="145" stroke="#666" stroke-width="0.8"/>
+  <line x1="580" y1="135" x2="580" y2="145" stroke="#666" stroke-width="0.8"/>
+  <text x="380" y="137" fill="#666" font-size="7" text-anchor="middle">~ 15 m</text>
+
+  <!-- Alto de zona de izaje -->
+  <line x1="165" y1="160" x2="165" y2="480" stroke="#666" stroke-width="0.8"/>
+  <line x1="160" y1="160" x2="170" y2="160" stroke="#666" stroke-width="0.8"/>
+  <line x1="160" y1="480" x2="170" y2="480" stroke="#666" stroke-width="0.8"/>
+  <text x="162" y="325" fill="#666" font-size="7" text-anchor="end" transform="rotate(-90 162 325)">~ 12 m</text>
+
+  <!-- Distancia grúa-carga -->
+  <line x1="380" y1="350" x2="380" y2="365" stroke="#888" stroke-width="0.8"/>
+  <text x="390" y="360" fill="#888" font-size="6">Radio ~ 3 m</text>
+
+  <!-- === CONO DE PROYECCIÓN (texto) === -->
+  <text x="380" y="500" fill="#888" font-size="7" text-anchor="middle">Cono de proyección de caída: ~ 8 m de radio</text>
+
+  <!-- === SÍMBOLO DE PROHIBIDO (en área de carga suspendida) === -->
+  <circle cx="380" cy="340" r="10" fill="none" stroke="#ff4444" stroke-width="1.5" opacity="0.3"/>
+  <line x1="372" y1="332" x2="388" y2="348" stroke="#ff4444" stroke-width="1.5" opacity="0.3"/>
+  <text x="380" y="358" fill="#ff4444" font-size="6" text-anchor="middle" opacity="0.4">No pasar</text>
+
+</svg>
+</div>
+
+<!-- LEYENDA -->
+<div class="leyenda">
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#ff4444"></div> Perímetro de seguridad</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#ffcc00"></div> Zona de izaje</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#ff8800"></div> Área de proyección de caída</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#00cc44"></div> Zona segura de personal</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#00aaff"></div> Área de descarga</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#ff6600"></div> Conos de seguridad</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#88a"></div> Grúa y estabilizadores</div>
+  <div class="leyenda-item"><div class="leyenda-color" style="background:#555;border:1px solid #888"></div> Carga con centro de gravedad</div>
+</div>
+
+<p class="nota">Las medidas son referenciales. Ajustar según el modelo de grúa y el espacio disponible en la escena de Unity.<br>
+Referencia: grúa móvil de ~20 ton, pluma de 15 m, radio de trabajo de 3-8 m, perímetro de seguridad de 15×12 m.</p>
+
+</body>
+</html>

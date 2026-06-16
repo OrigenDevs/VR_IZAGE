@@ -11,10 +11,13 @@ public class DesktopInputController : MonoBehaviour
     public Vector3 handOffset = new Vector3(0.3f, -0.2f, 0.5f);
 
     public KeyCode toggleKey = KeyCode.P;
+    public bool desktopMode = false;
 
-    private bool desktopMode = false;
+    private bool wasDesktopMode = false;
     private float cameraYaw = 0f;
     private float cameraPitch = 0f;
+    private float handYaw = 0f;
+    private float handPitch = 0f;
 
     void Start()
     {
@@ -25,30 +28,39 @@ public class DesktopInputController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(toggleKey))
-            ToggleMode();
+            desktopMode = !desktopMode;
+
+        if (desktopMode != wasDesktopMode)
+        {
+            wasDesktopMode = desktopMode;
+            if (desktopMode) ActivateDesktopMode();
+            else DeactivateDesktopMode();
+        }
 
         if (!desktopMode) return;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             cameraYaw += cameraRotateSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             cameraYaw -= cameraRotateSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            cameraPitch += cameraRotateSpeed * Time.deltaTime;
-            cameraPitch = Mathf.Clamp(cameraPitch, -85f, 85f);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             cameraPitch -= cameraRotateSpeed * Time.deltaTime;
+            cameraPitch = Mathf.Clamp(cameraPitch, -85f, 85f);
+        }
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
+            cameraPitch += cameraRotateSpeed * Time.deltaTime;
             cameraPitch = Mathf.Clamp(cameraPitch, -85f, 85f);
         }
 
         targetCamera.transform.rotation = Quaternion.Euler(cameraPitch, cameraYaw, 0f);
 
-        Vector3 mouseOffset = Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
-        float handYaw = (mouseOffset.x / Screen.width) * 120f * mouseSensitivity;
-        float handPitch = -(mouseOffset.y / Screen.height) * 120f * mouseSensitivity;
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        handYaw += mouseX * 120f * mouseSensitivity * Time.deltaTime;
+        handPitch -= mouseY * 120f * mouseSensitivity * Time.deltaTime;
         handPitch = Mathf.Clamp(handPitch, -80f, 80f);
 
         Vector3 handPos = targetCamera.transform.position
@@ -58,38 +70,38 @@ public class DesktopInputController : MonoBehaviour
 
         Quaternion handRot = targetCamera.transform.rotation * Quaternion.Euler(handPitch, handYaw, 0f);
 
-        if (leftHand != null)
+        if (rightHand != null)
         {
-            leftHand.desktopOverride = true;
-            leftHand.desktopPosition = handPos;
-            leftHand.desktopRotation = handRot;
-            leftHand.desktopTrigger = Input.GetMouseButton(0);
+            rightHand.desktopOverride = true;
+            rightHand.desktopPosition = handPos;
+            rightHand.desktopRotation = handRot;
+            rightHand.desktopTrigger = Input.GetMouseButton(0);
         }
     }
 
-    void ToggleMode()
+    void ActivateDesktopMode()
     {
-        desktopMode = !desktopMode;
+        cameraYaw = targetCamera.transform.eulerAngles.y;
+        float rawPitch = targetCamera.transform.eulerAngles.x;
+        cameraPitch = rawPitch > 180f ? rawPitch - 360f : rawPitch;
 
-        if (desktopMode)
-        {
-            cameraYaw = targetCamera.transform.eulerAngles.y;
-            cameraPitch = targetCamera.transform.eulerAngles.x;
+        handYaw = 0f;
+        handPitch = 0f;
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
-            if (leftHand != null) leftHand.desktopOverride = true;
-            if (rightHand != null) rightHand.desktopOverride = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        if (rightHand != null) rightHand.desktopOverride = true;
+        if (leftHand != null) leftHand.desktopOverride = false;
+    }
 
-            if (leftHand != null) leftHand.desktopOverride = false;
-            if (rightHand != null) rightHand.desktopOverride = false;
-        }
+    void DeactivateDesktopMode()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (leftHand != null) leftHand.desktopOverride = false;
+        if (rightHand != null) rightHand.desktopOverride = false;
     }
 
     void OnGUI()
@@ -107,7 +119,7 @@ public class DesktopInputController : MonoBehaviour
             style.fontSize = 14;
             style.normal.textColor = Color.green;
             GUI.Label(new Rect(10, 10, 400, 30), "MODO ESCRITORIO | P: volver a VR", style);
-            GUI.Label(new Rect(10, 30, 400, 30), "Flechas: rotar cámara | Mouse: mano | Click: gatillo", style);
+            GUI.Label(new Rect(10, 30, 400, 30), "Flechas/W/S: cámara | Mouse: mano | Click: gatillo", style);
         }
     }
 }

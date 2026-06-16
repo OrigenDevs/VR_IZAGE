@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estructura VR - 18 Pasos</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;width:100%;overflow:hidden}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0a0a0f;color:#e8e8ed;user-select:text}
+#slides{position:relative;width:100%;height:100%}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:40px 60px;opacity:0;visibility:hidden;transition:opacity 0.5s ease,visibility 0.5s;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide::before{content:'';flex:1;min-height:20px}
+.slide::after{content:'';flex:1;min-height:20px}
+.slide.active{opacity:1;visibility:visible}
+.card{background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;max-width:960px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+.card h1{font-size:2.2rem;color:#00c8ff;margin-bottom:4px;text-shadow:0 0 40px rgba(0,200,255,0.25)}
+.card .sub{color:#9090a0;margin-bottom:24px;font-size:1rem}
+.card h2{color:#00c8ff;font-size:1.2rem;margin:20px 0 8px;display:flex;align-items:center;gap:8px}
+.card p,.card li{color:#c0c0cc;line-height:1.7;font-size:0.95rem}
+.tag{display:inline-block;background:rgba(0,200,255,0.1);color:#00c8ff;padding:2px 10px;border-radius:12px;font-size:0.8rem;border:1px solid rgba(0,200,255,0.15);margin:2px}
+ul{list-style:none;padding:0}
+ul li{padding:4px 0 4px 18px;position:relative}
+ul li::before{content:"▸";position:absolute;left:0;color:#00c8ff;opacity:0.5}
+.nav-btn{position:fixed;bottom:28px;z-index:100;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);color:#e8e8ed;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.nav-btn:hover{background:#00c8ff;color:#000;border-color:#00c8ff;transform:scale(1.08)}
+.nav-btn.prev{left:28px}
+.nav-btn.next{right:28px}
+.nav-btn.hidden{opacity:0;pointer-events:none}
+#progress{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100}
+.dot{width:8px;height:8px;border-radius:50%;background:#2a2a38;transition:all 0.4s;cursor:pointer}
+.dot.active{background:#00c8ff;box-shadow:0 0 12px rgba(0,200,255,0.25);width:22px;border-radius:4px}
+#counter{position:fixed;top:20px;right:28px;font-size:0.85rem;color:#9090a0;z-index:100;font-variant-numeric:tabular-nums}
+
+/* Slide 1 - Architecture */
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0}
+.grid-3 > div{background:rgba(0,200,255,0.06);border-radius:10px;padding:12px;text-align:center}
+.grid-3 .icono{font-size:1.6rem;margin-bottom:4px}
+.grid-3 .tit{font-weight:600;color:#00c8ff;font-size:0.85rem}
+.grid-3 .desc{font-size:0.8rem;color:#9090a0;margin-top:2px}
+.diagrama{background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:12px;padding:16px;margin:10px 0;text-align:center}
+.diagrama .caja{display:inline-block;background:#1a1a28;border:1px solid rgba(0,200,255,0.15);border-radius:10px;padding:8px 16px;margin:3px;color:#00c8ff;font-weight:500;font-size:0.85rem}
+.ejemplo{background:rgba(255,200,0,0.04);border-left:3px solid #ffc800;padding:10px 14px;border-radius:8px;margin:8px 0;color:#d0d0dd;font-size:0.9rem}
+
+/* Slide 2 - Scripts */
+.script-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.script-card{background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.08);border-radius:14px;padding:16px;transition:all 0.3s}
+.script-card:hover{background:rgba(0,200,255,0.08);border-color:rgba(0,200,255,0.2);transform:translateY(-2px)}
+.script-card .script-name{color:#00c8ff;font-weight:700;font-size:1rem;margin-bottom:6px}
+.script-card .script-desc{color:#b0b0bc;font-size:0.85rem;line-height:1.6}
+.script-card .script-file{color:#606070;font-size:0.75rem;margin-top:6px;font-family:monospace}
+
+/* Slide 3 - Unity Setup */
+.pasos-grid{display:grid;grid-template-columns:auto 1fr;gap:8px;margin:8px 0}
+.paso-num{background:#00c8ff;color:#000;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.paso-contenido{color:#b0b0bc;font-size:0.9rem;line-height:1.6;padding-top:4px}
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.ref-card{background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.08);border-radius:10px;padding:12px}
+.ref-card .ref-name{color:#00c8ff;font-weight:600;font-size:0.9rem;margin-bottom:4px}
+.ref-card .ref-desc{color:#9090a0;font-size:0.8rem;line-height:1.5}
+</style>
+</head>
+<body>
+<div id="slides">
+
+<!-- ==================== SLIDE 1: ARQUITECTURA ==================== -->
+<div class="slide active" data-index="0">
+<div class="card">
+<h1>Estructura del Proyecto VR</h1>
+<p class="sub">Sistema lineal de 18 pasos con asistente robot, voz sincronizada y labios animados</p>
+
+<h2>1. Director de Fases</h2>
+<p>Un solo script central controla el avance. Cuando se cumple la condición del paso actual:</p>
+<ul>
+<li>Apaga objetos del paso anterior</li>
+<li>Enciende objetos del nuevo paso</li>
+<li>Reproduce audio con texto sincronizado</li>
+<li>Activa sistemas extra (repisa, maqueta, medidor...)</li>
+</ul>
+
+<h2>2. Cada paso es un archivo de datos</h2>
+<p>ScriptableObjects configurables desde el editor. Cada paso tiene: <span class="tag">número</span> <span class="tag">audio + texto</span> <span class="tag">objetos a activar</span> <span class="tag">objetos a desactivar</span> <span class="tag">tipo de finalización</span></p>
+
+<h2>3. Tipos de finalización</h2>
+<div class="grid-3">
+<div><div class="icono">✅</div><div class="tit">Botón "Entendí"</div><div class="desc">Ventana emergente con confirmación</div></div>
+<div><div class="icono">⏱️</div><div class="tit">Temporizador</div><div class="desc">Usar instrumento X segundos</div></div>
+<div><div class="icono">🎯</div><div class="tit">Interacción</div><div class="desc">Agarrar objeto específico</div></div>
+<div><div class="icono">📏</div><div class="tit">Medición</div><div class="desc">Leer valor correcto</div></div>
+<div><div class="icono">🔁</div><div class="tit">Secuencia</div><div class="desc">Serie de pasos</div></div>
+<div><div class="icono">🎤</div><div class="tit">Voz</div><div class="desc">Decir "listo"</div></div>
+</div>
+
+<h2>4. Sincronización de Labios</h2>
+<p>El robot anima su boca según el volumen del audio en tiempo real usando <span class="tag">GetSpectrumData</span>. Con sonido los sprites se animan; en silencio se quedan en el primero.</p>
+
+<h2>5. Flujo por paso</h2>
+<div class="diagrama">
+<span class="caja">1. Activar objetos</span>
+<span class="caja">2. Reproducir voz</span>
+<span class="caja">3. Escribir texto</span>
+<span class="caja">4. Animar boca</span>
+<span class="caja">5. Esperar acción</span>
+<span class="caja">6. Avanzar</span>
+</div>
+
+<div class="ejemplo">
+<strong>Ejemplo Paso 4 - "Medir el viento":</strong> Se activa el anemómetro, el robot explica cómo usarlo, el texto se escribe sincronizado con su voz, la boca se mueve mientras habla. El usuario mide el viento 5 segundos y el paso avanza solo.
+</div>
+</div>
+</div>
+
+<!-- ==================== SLIDE 2: SCRIPTS ==================== -->
+<div class="slide" data-index="1">
+<div class="card">
+<h1>Los 5 Scripts del Sistema</h1>
+<p class="sub">Ubicación: <span class="tag">Assets/VR_IZAJE/CODIGO/</span></p>
+
+<div class="script-grid">
+<div class="script-card">
+<div class="script-name">StepData.cs</div>
+<div class="script-desc">ScriptableObject que define cada paso. Contiene número, audio, texto, objetos a activar/desactivar, tipo de finalización y ajuste de tiempo. Se crea desde el menú <strong>Crear &gt; VR Izaje &gt; Paso</strong>.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/StepData.cs</div>
+</div>
+
+<div class="script-card">
+<div class="script-name">DialogSystemVR.cs</div>
+<div class="script-desc">Reproduce el audio de voz y escribe el texto letra por letra sincronizado con la duración del audio. Calcula el tiempo por carácter dividiendo la duración del audio entre la cantidad de letras. Avisa al StepManager cuando termina.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/DialogSystemVR.cs</div>
+</div>
+
+<div class="script-card">
+<div class="script-name">LipSyncController.cs</div>
+<div class="script-desc">Anima la boca del robot analizando el volumen del audio en tiempo real con GetSpectrumData. Cuando hay sonido sobre el umbral, avanza los sprites de la boca. En silencio, se queda en el primer sprite.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/LipSyncController.cs</div>
+</div>
+
+<div class="script-card">
+<div class="script-name">StepManager.cs</div>
+<div class="script-desc">El director central. Recibe el array de 18 pasos, carga el paso actual (activa/desactiva objetos), inicia el diálogo, espera la condición de finalización y avanza al siguiente. Es el cerebro del proyecto.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/StepManager.cs</div>
+</div>
+
+<div class="script-card">
+<div class="script-name">UI_ConfirmPopup.cs</div>
+<div class="script-desc">Ventana emergente con mensaje y botón "Entendí". Se usa en pasos de tipo ButtonConfirm. Cuando el usuario hace clic, avisa al StepManager para que continúe.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/UI_ConfirmPopup.cs</div>
+</div>
+
+<div class="script-card">
+<div class="script-name">VRHandController.cs</div>
+<div class="script-desc">Maneja el tracking del control VR, el láser y el color de la mano. Ya existente, actualizado con láser y feedback visual del gatillo.</div>
+<div class="script-file">Assets/VR_IZAJE/CODIGO/VRHandController.cs</div>
+</div>
+</div>
+
+<div class="ejemplo" style="margin-top:12px">
+<strong>📌 Próximo paso:</strong> El usuario debe copiar los 3 scripts de StepData a "paso_01" y configurarlos con audio, texto y objetos. Luego arrastrarlos al StepManager en la escena LOBBI.
+</div>
+</div>
+</div>
+
+<!-- ==================== SLIDE 3: CÓMO MONTARLO EN UNITY ==================== -->
+<div class="slide" data-index="2">
+<div class="card">
+<h1>Cómo montarlo en Unity</h1>
+<p class="sub">Paso a paso para armar el sistema en la escena LOBBI</p>
+
+<h2>Paso 1: Crear el GameObject Central</h2>
+<p style="margin-bottom:8px">En la escena LOBBI, crea un GameObject vacío llamado <span class="tag">DirectorFases</span> y asígnale estos componentes:</p>
+<div class="diagrama" style="text-align:left;padding:12px 16px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:0.9rem">
+<div style="color:#00c8ff;font-weight:600">Componente</div><div style="color:#00c8ff;font-weight:600">Rol</div>
+<div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">StepManager</div><div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">Directora central de fases</div>
+<div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">DialogSystemVR</div><div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">Reproduce voz + texto</div>
+<div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">LipSyncController</div><div style="border-bottom:1px solid rgba(0,200,255,0.1);padding:4px 0">Anima boca del robot</div>
+<div style="padding:4px 0">AudioSource</div><div style="padding:4px 0">Reproduce el audio (se añade solo)</div>
+</div>
+</div>
+
+<h2>Paso 2: Asignar referencias en StepManager</h2>
+<p>Selecciona el DirectorFases y en el Inspector arrastra los componentes a sus ranuras:</p>
+<div class="diagrama" style="text-align:center">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='200'%3E%3Crect width='500' height='200' fill='%231a1a28' rx='12'/%3E%3Ctext x='20' y='35' fill='%2300c8ff' font-size='13' font-family='monospace'%3EStepManager (Script)%3C/text%3E%3Ctext x='20' y='65' fill='%239090a0' font-size='11'%3ESteps: ▸ Array vacío%3C/text%3E%3Ctext x='20' y='85' fill='%239090a0' font-size='11'%3EDialog System: ▸ DialogSystemVR %3C/text%3E%3Ctext x='20' y='105' fill='%239090a0' font-size='11'%3ELip Sync: ▸ LipSyncController%3C/text%3E%3Ctext x='20' y='125' fill='%239090a0' font-size='11'%3EConfirm Popup: ▸ UI_ConfirmPopup%3C/text%3E%3Ctext x='20' y='155' fill='%23606070' font-size='10'%3E(Drag and drop cada componente desde el mismo GameObject)%3C/text%3E%3C/svg%3E" style="width:100%;max-width:500px;border-radius:10px">
+</div>
+
+<h2>Paso 3: Crear los 18 pasos (StepData)</h2>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;margin:8px 0">
+<div>
+<p style="margin-bottom:6px">En el Project Window, haz clic derecho:</p>
+<ul>
+<li><strong>Crear → VR Izaje → Paso</strong></li>
+<li>Nómbralo <span class="tag">Paso_01_Introduccion</span></li>
+<li>Rellena sus campos en el Inspector</li>
+<li>Repite para los 18 pasos</li>
+</ul>
+</div>
+<div style="background:rgba(0,200,255,0.06);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:center">
+<div style="color:#00c8ff;font-size:0.9rem;font-weight:600;text-align:center">Crear &gt; VR Izaje &gt; Paso</div>
+<div style="color:#606070;font-size:0.75rem;text-align:center;margin-top:6px;font-family:monospace">Assets/VR_IZAJE/DATA/</div>
+</div>
+</div>
+
+<h2>Paso 4: Configurar cada StepData</h2>
+<div class="diagrama" style="text-align:left;padding:12px 16px">
+<div style="display:grid;grid-template-columns:100px 1fr;gap:4px;font-size:0.85rem">
+<div style="color:#00c8ff">Step Number</div><div style="color:#c0c0cc">1, 2, 3... 18</div>
+<div style="color:#00c8ff">Voice Clip</div><div style="color:#c0c0cc">Arrastra el archivo de audio aquí</div>
+<div style="color:#00c8ff">Dialog Text</div><div style="color:#c0c0cc">Escribe el texto que aparece letra por letra</div>
+<div style="color:#00c8ff">Completion Type</div><div style="color:#c0c0cc">Automatic / ButtonConfirm / Timer...</div>
+<div style="color:#00c8ff">Objects To Activate</div><div style="color:#c0c0cc">Arrastra los objetos que se encienden en este paso</div>
+<div style="color:#00c8ff">Objects To Deactivate</div><div style="color:#c0c0cc">Arrastra los objetos que se apagan</div>
+<div style="color:#00c8ff">Time Adjustment</div><div style="color:#c0c0cc">Ajuste fino de sincronía entre texto y audio</div>
+</div>
+</div>
+
+<h2>Paso 5: Asignar los pasos al StepManager</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0">
+<div style="background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:10px;padding:14px">
+<div style="color:#00c8ff;font-weight:600;margin-bottom:6px">🎤 DialogSystemVR</div>
+<div style="color:#b0b0bc;font-size:0.85rem;line-height:1.6">
+Asigna:<br>
+<span class="tag">Text Display</span> → TextMeshPro del panel de diálogo<br>
+<span class="tag">Dialog Panel</span> → GameObject del panel de texto
+</div>
+</div>
+<div style="background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:10px;padding:14px">
+<div style="color:#00c8ff;font-weight:600;margin-bottom:6px">👄 LipSyncController</div>
+<div style="color:#b0b0bc;font-size:0.85rem;line-height:1.6">
+Asigna:<br>
+<span class="tag">Mouth Renderer</span> → SpriteRenderer de la boca<br>
+<span class="tag">Mouth Sprites</span> → Array de sprites de la boca
+</div>
+</div>
+</div>
+<div style="background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:10px;padding:14px;margin-top:8px">
+<div style="color:#00c8ff;font-weight:600;margin-bottom:6px">🔧 UI_ConfirmPopup</div>
+<div style="color:#b0b0bc;font-size:0.85rem;line-height:1.6">
+Asigna:<br>
+<span class="tag">Popup Panel</span> → GameObject del panel "Entendí"<br>
+<span class="tag">Message Text</span> → Text donde se muestra el mensaje<br>
+<span class="tag">Confirm Button</span> → Botón "Entendí"
+</div>
+</div>
+
+<div class="ejemplo" style="margin-top:12px">
+<strong>▶️ ¡A probar!</strong> Una vez armado, dale Play. El Director de Fases cargará el Paso 1 automáticamente. El robot hablará, el texto se escribirá solo, y al completarse la acción (o al hacer clic en "Entendí"), avanzará al Paso 2.
+</div>
+</div>
+</div>
+
+</div><!-- /slides -->
+
+<button class="nav-btn prev" id="prevBtn">&#10094;</button>
+<button class="nav-btn next" id="nextBtn">&#10095;</button>
+<div id="progress"></div>
+<div id="counter">01 / 03</div>
+
+<script>
+let current=0;const slides=document.querySelectorAll('.slide');const total=slides.length;const progress=document.getElementById('progress');const counter=document.getElementById('counter');const prevBtn=document.getElementById('prevBtn');const nextBtn=document.getElementById('nextBtn');
+for(let i=0;i<total;i++){const dot=document.createElement('div');dot.className='dot'+(i===0?' active':'');dot.onclick=()=>goTo(i);progress.appendChild(dot);}
+function goTo(idx){slides[current].classList.remove('active');progress.children[current].classList.remove('active');current=idx;slides[current].classList.add('active');progress.children[current].classList.add('active');counter.textContent=(current+1).toString().padStart(2,'0')+' / '+total.toString().padStart(2,'0');prevBtn.classList.toggle('hidden',current===0);nextBtn.classList.toggle('hidden',current===total-1);}
+function navigate(dir){const next=current+dir;if(next>=0&&next<total)goTo(next);}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')navigate(1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')navigate(-1);});
+</script>
+</body>
+</html>

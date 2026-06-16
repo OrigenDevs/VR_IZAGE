@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Escritorio VR - Probar sin casco</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;width:100%;overflow:hidden}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0a0a0f;color:#e8e8ed;user-select:text}
+#slides{position:relative;width:100%;height:100%}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:40px 60px;opacity:0;visibility:hidden;transition:opacity 0.5s ease,visibility 0.5s;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide::before{content:'';flex:1;min-height:20px}
+.slide::after{content:'';flex:1;min-height:20px}
+.slide.active{opacity:1;visibility:visible}
+
+/* Card base */
+.card{background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;max-width:1000px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+.card h1{font-size:2.2rem;color:#00c8ff;margin-bottom:4px;text-shadow:0 0 40px rgba(0,200,255,0.25)}
+.card .sub{color:#9090a0;margin-bottom:24px;font-size:1rem}
+.card h2{color:#00c8ff;font-size:1.2rem;margin:20px 0 8px;display:flex;align-items:center;gap:8px}
+.card p,.card li{color:#c0c0cc;line-height:1.7;font-size:0.95rem}
+.tag{display:inline-block;background:rgba(0,200,255,0.1);color:#00c8ff;padding:2px 10px;border-radius:12px;font-size:0.8rem;border:1px solid rgba(0,200,255,0.15);margin:2px}
+.tag-tecla{display:inline-block;background:rgba(255,255,255,0.06);color:#e8e8ed;padding:2px 12px;border-radius:6px;font-size:0.8rem;border:1px solid rgba(255,255,255,0.1);margin:2px;font-family:monospace;font-weight:600}
+ul{list-style:none;padding:0}
+ul li{padding:4px 0 4px 18px;position:relative}
+ul li::before{content:"▸";position:absolute;left:0;color:#00c8ff;opacity:0.5}
+
+/* Navigation */
+.nav-btn{position:fixed;bottom:28px;z-index:100;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);color:#e8e8ed;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.nav-btn:hover{background:#00c8ff;color:#000;border-color:#00c8ff;transform:scale(1.08)}
+.nav-btn.prev{left:28px}
+.nav-btn.next{right:28px}
+.nav-btn.hidden{opacity:0;pointer-events:none}
+#progress{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100}
+.dot{width:8px;height:8px;border-radius:50%;background:#2a2a38;transition:all 0.4s;cursor:pointer}
+.dot.active{background:#00c8ff;box-shadow:0 0 12px rgba(0,200,255,0.25);width:22px;border-radius:4px}
+#counter{position:fixed;top:20px;right:28px;font-size:0.85rem;color:#9090a0;z-index:100;font-variant-numeric:tabular-nums}
+
+/* Grids */
+.diagrama{background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:12px;padding:16px;margin:10px 0;text-align:center}
+.ejemplo{background:rgba(255,200,0,0.04);border-left:3px solid #ffc800;padding:10px 14px;border-radius:8px;margin:8px 0;color:#d0d0dd;font-size:0.9rem}
+
+/* Teclas visuales */
+.teclas{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+.tecla{background:#1a1a28;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;text-align:center;min-width:70px}
+.tecla .icono{font-size:1.4rem;margin-bottom:2px}
+.tecla .label{color:#9090a0;font-size:0.72rem}
+
+/* Comparacion */
+.comparacion{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+.comparacion>div{border-radius:12px;padding:16px}
+.comparacion .vr{border:1px solid rgba(0,200,255,0.15);background:rgba(0,200,255,0.04)}
+.comparacion .pc{border:1px solid rgba(0,255,100,0.15);background:rgba(0,255,100,0.04)}
+.comparacion .tit{font-weight:700;font-size:1rem;margin-bottom:8px}
+.comparacion .vr .tit{color:#00c8ff}
+.comparacion .pc .tit{color:#00ff64}
+.comparacion .item{color:#b0b0bc;font-size:0.85rem;padding:3px 0;display:flex;justify-content:space-between}
+.comparacion .item span{color:#606070}
+
+/* Setup steps */
+.setup-step{display:grid;grid-template-columns:36px 1fr;gap:12px;margin:12px 0;padding:12px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+.setup-num{background:#00c8ff;color:#000;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem}
+.setup-content{color:#c0c0cc;font-size:0.9rem;line-height:1.6}
+.setup-content strong{color:#e8e8ed}
+
+/* Code block */
+.code-block{background:#101018;border:1px solid rgba(0,200,255,0.08);border-radius:10px;padding:14px;margin:10px 0;font-family:monospace;font-size:0.82rem;color:#c0c0cc;line-height:1.7;overflow-x:auto}
+.code-block .cmt{color:#606070}
+.code-block .key{color:#00c8ff}
+.code-block .val{color:#ffc800}
+.code-block .fn{color:#00ff88}
+
+/* Tips grid */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.tip-card{background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.08);border-radius:12px;padding:16px}
+.tip-card .tip-tit{color:#00c8ff;font-weight:600;font-size:0.9rem;margin-bottom:6px}
+.tip-card .tip-desc{color:#9090a0;font-size:0.82rem;line-height:1.5}
+.tip-card .tip-desc strong{color:#c0c0cc}
+</style>
+</head>
+<body>
+<div id="slides">
+
+<!-- ============ SLIDE 1: INTRO ============ -->
+<div class="slide active" data-index="0">
+<div class="card">
+<h1>Modo Escritorio</h1>
+<p class="sub">Prueba el juego VR sin ponerte el casco. Ideal para desarrollar, debuggear y experimentar.</p>
+
+<div class="comparacion">
+<div class="vr">
+<div class="tit">🎮 Modo VR</div>
+<div class="item">Casco puesto <span>Oculus Go / Quest</span></div>
+<div class="item">Control físico <span>Mando Oculus</span></div>
+<div class="item">Movimiento real <span>Giras la cabeza</span></div>
+<div class="item">Sin monitor <span>Ves dentro del casco</span></div>
+</div>
+<div class="pc">
+<div class="tit">🖥️ Modo Escritorio</div>
+<div class="item">Sin casco <span>Solo monitor</span></div>
+<div class="item">Flechas del teclado <span>Rotan la cámara</span></div>
+<div class="item">Mouse <span>Controla la mano</span></div>
+<div class="item">Click izquierdo <span>Activa el gatillo/láser</span></div>
+</div>
+</div>
+
+<p style="margin:16px 0 8px">Al pulsar la tecla <span class="tag-tecla">P</span> cambias entre un modo y otro al instante, sin reiniciar el juego.</p>
+
+<div class="ejemplo">
+<strong>💡 Para qué sirve:</strong> Puedes probar el láser, el agarre de objetos, el menú "Entendí", y todo el sistema de pasos sin necesidad de ponerte el casco ni conectar ALVR. Agiliza muchísimo el desarrollo.
+</div>
+</div>
+</div>
+
+<!-- ============ SLIDE 2: CONTROLES ============ -->
+<div class="slide" data-index="1">
+<div class="card">
+<h1>Controles en Modo Escritorio</h1>
+<p class="sub">Todo lo que necesitas saber para manejarte sin casco</p>
+
+<h2>🎯 Cámara</h2>
+<div class="teclas">
+<div class="tecla"><div class="icono">⬅️</div><div class="label">Rotar izquierda</div></div>
+<div class="tecla"><div class="icono">➡️</div><div class="label">Rotar derecha</div></div>
+<div class="tecla"><div class="icono">⬆️</div><div class="label">Mirar arriba</div></div>
+<div class="tecla"><div class="icono">⬇️</div><div class="label">Mirar abajo</div></div>
+</div>
+<p style="color:#9090a0;font-size:0.85rem;text-align:center;margin-bottom:16px">La cámara gira 60 grados por segundo. La inclinación está limitada entre -85° y +85° para no darte la vuelta.</p>
+
+<h2>🖱️ Mano / Láser</h2>
+<div class="teclas">
+<div class="tecla"><div class="icono">🖱️ →</div><div class="label">Mano gira a los lados</div></div>
+<div class="tecla"><div class="icono">🖱️ ↑↓</div><div class="label">Mano gira arriba/abajo</div></div>
+<div class="tecla"><div class="icono">🖱️ Click</div><div class="label">Gatillo / Agarrar</div></div>
+</div>
+<p style="color:#9090a0;font-size:0.85rem;text-align:center;margin-bottom:16px">La mano se coloca 50 centímetros delante de la cámara, ligeramente a la derecha y abajo. El mouse controla hacia dónde apunta.</p>
+
+<h2>⌨️ Atajos</h2>
+<div class="teclas">
+<div class="tecla"><div class="icono">P</div><div class="label">Alternar VR / Escritorio</div></div>
+</div>
+
+<div class="diagrama" style="margin-top:16px">
+<div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap">
+<div style="text-align:center">
+<div style="font-size:2rem;margin-bottom:4px">🟢</div>
+<div style="color:#00ff64;font-size:0.85rem;font-weight:600">MODO ESCRITORIO ACTIVO</div>
+<div style="color:#606070;font-size:0.75rem">Indicador verde en pantalla</div>
+</div>
+<div style="text-align:center">
+<div style="font-size:2rem;margin-bottom:4px">⚪</div>
+<div style="color:#9090a0;font-size:0.85rem;font-weight:600">MODO VR</div>
+<div style="color:#606070;font-size:0.75rem">"Presiona P para activar"</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ SLIDE 3: CÓMO SE HIZO ============ -->
+<div class="slide" data-index="2">
+<div class="card">
+<h1>¿Cómo funciona?</h1>
+<p class="sub">Dos scripts trabajan juntos para que esto sea posible</p>
+
+<div class="diagrama">
+<div style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap">
+<div style="background:#1a1a28;border:1px solid rgba(0,200,255,0.15);border-radius:10px;padding:12px 20px;text-align:center">
+<div style="color:#00c8ff;font-weight:700;font-size:0.9rem">VRHandController.cs</div>
+<div style="color:#606070;font-size:0.7rem;margin-top:4px">MODIFICADO</div>
+</div>
+<div style="color:#9090a0;font-size:1.2rem">⟷</div>
+<div style="background:#1a1a28;border:1px solid rgba(0,255,100,0.15);border-radius:10px;padding:12px 20px;text-align:center">
+<div style="color:#00ff64;font-weight:700;font-size:0.9rem">DesktopInputController.cs</div>
+<div style="color:#606070;font-size:0.7rem;margin-top:4px">NUEVO</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0">
+<div style="background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.08);border-radius:12px;padding:16px">
+<div style="color:#00c8ff;font-weight:700;font-size:0.9rem;margin-bottom:8px">📄 VRHandController.cs</div>
+<p style="color:#b0b0bc;font-size:0.85rem;line-height:1.6">Se le añadieron <strong style="color:#e8e8ed">4 variables nuevas</strong> que permiten controlar la mano desde fuera:</p>
+<div class="code-block">
+<span class="cmt">// Cuando desktopOverride = true, ignora el mando real</span>
+<span class="cmt">// y usa estos valores:</span>
+<span class="key">desktopOverride</span>  <span class="cmt">// Activa/desactiva el modo</span>
+<span class="key">desktopPosition</span>   <span class="cmt">// Posición en el mundo</span>
+<span class="key">desktopRotation</span>   <span class="cmt">// Rotación en el mundo</span>
+<span class="key">desktopTrigger</span>    <span class="cmt">// true = gatillo presionado</span>
+</div>
+</div>
+<div style="background:rgba(0,255,100,0.04);border:1px solid rgba(0,255,100,0.08);border-radius:12px;padding:16px">
+<div style="color:#00ff64;font-weight:700;font-size:0.9rem;margin-bottom:8px">📄 DesktopInputController.cs</div>
+<p style="color:#b0b0bc;font-size:0.85rem;line-height:1.6">Script nuevo que se encarga de <strong style="color:#e8e8ed">todo</strong>:</p>
+<div class="code-block">
+<span class="cmt">// En cada frame, si modo escritorio activo:</span>
+<span class="fn">Flechas</span> → rotación de cámara<br>
+<span class="fn">Mouse XY</span> → rotación de la mano<br>
+<span class="fn">Click izq.</span> → activa el gatillo<br>
+<span class="fn">Tecla P</span> → cambia entre modos
+</div>
+</div>
+</div>
+
+<div class="ejemplo">
+<strong>⚙️ Flujo completo:</strong> Pulsas P → DesktopInputController activa desktopOverride en la mano → VRHandController deja de buscar el mando real y usa la posición/rotación que le envía el mouse → Cuando haces click, activa el gatillo y el láser aparece. Todo el resto del juego funciona exactamente igual.
+</div>
+</div>
+</div>
+
+<!-- ============ SLIDE 4: MONTAJE EN UNITY ============ -->
+<div class="slide" data-index="3">
+<div class="card">
+<h1>Montaje en Unity</h1>
+<p class="sub">Paso a paso para ponerlo en marcha</p>
+
+<div class="setup-step">
+<div class="setup-num">1</div>
+<div class="setup-content">
+<strong>Crea un GameObject vacío</strong><br>
+En la escena LOBBI, clic derecho en la jerarquía → <span class="tag">Create Empty</span>. Nómbralo <span class="tag">InputManager</span>.
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-num">2</div>
+<div class="setup-content">
+<strong>Asigna el script</strong><br>
+Arrastra <span class="tag">DesktopInputController.cs</span> desde la carpeta <span class="tag">CODIGO/VR/</span> al GameObject InputManager.
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-num">3</div>
+<div class="setup-content">
+<strong>Asigna referencias</strong><br>
+En el Inspector del InputManager, arrastra:<br>
+<span class="tag">Target Camera</span> → La cámara principal (Main Camera)<br>
+<span class="tag">Left Hand</span> → El GameObject Left Controller (el que tiene VRHandController)
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-num">4</div>
+<div class="setup-content">
+<strong>Ajusta (opcional)</strong><br>
+Puedes modificar estos valores en el Inspector:<br>
+<span class="tag">Mouse Sensitivity</span> → 0.8 (qué tan sensible es el mouse)<br>
+<span class="tag">Camera Rotate Speed</span> → 60 (velocidad de giro con flechas)<br>
+<span class="tag">Hand Offset</span> → dónde aparece la mano respecto a la cámara
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-num">5</div>
+<div class="setup-content">
+<strong>¡A probar!</strong><br>
+Dale Play. Verás un mensaje blanco: <em>"Presiona P para activar modo escritorio"</em>. Pulsa <span class="tag-tecla">P</span> y el mensaje se volverá verde: <em>"MODO ESCRITORIO"</em>. Mueve el mouse y las flechas para probar.
+</div>
+</div>
+
+<div class="diagrama" style="margin-top:16px">
+<div style="font-size:0.85rem;color:#9090a0;margin-bottom:8px">🔍 El Inspector debería verse así:</div>
+<div style="display:inline-block;background:#101018;border:1px solid rgba(0,200,255,0.1);border-radius:10px;padding:16px 24px;text-align:left;font-family:monospace;font-size:0.85rem;color:#c0c0cc;line-height:2">
+<span style="color:#00c8ff">Desktop Input Controller (Script)</span><br>
+├─ Target Camera: <span style="color:#9090a0">Main Camera (Camera)</span><br>
+├─ Left Hand: <span style="color:#9090a0">Left Controller (VRHandController)</span><br>
+├─ Mouse Sensitivity: <span style="color:#ffc800">0.8</span><br>
+├─ Camera Rotate Speed: <span style="color:#ffc800">60</span><br>
+├─ Hand Offset: <span style="color:#ffc800">(0.3, -0.2, 0.5)</span><br>
+└─ Toggle Key: <span style="color:#ffc800">P</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ SLIDE 5: CONSEJOS ============ -->
+<div class="slide" data-index="4">
+<div class="card">
+<h1>Consejos y trucos</h1>
+<p class="sub">Para sacarle el máximo partido al modo escritorio</p>
+
+<div class="tips-grid">
+<div class="tip-card">
+<div class="tip-tit">🧪 Prueba el láser</div>
+<div class="tip-desc">Con el modo escritorio activo, mueve el mouse sobre los cubos de la escena. Verás que el láser aparece al hacer click y la mano se pone <strong style="color:#00ff64">verde</strong> si toca un objeto agarrable.</div>
+</div>
+<div class="tip-card">
+<div class="tip-tit">🎯 Apuntado preciso</div>
+<div class="tip-desc">El mouse controla la rotación de la mano. Para apuntar a algo, primero rota la cámara con las flechas para centrar la escena, luego usa el mouse para apuntar fino.</div>
+</div>
+<div class="tip-card">
+<div class="tip-tit">🔄 Alterna rápido</div>
+<div class="tip-desc">Si tienes el casco conectado, pulsa <span class="tag-tecla">P</span> para ir al modo escritorio, haz tus pruebas, y pulsa <span class="tag-tecla">P</span> otra vez para volver a VR al instante.</div>
+</div>
+<div class="tip-card">
+<div class="tip-tit">📐 Ajusta el offset</div>
+<div class="tip-desc">Si quieres que la mano aparezca en otra posición respecto a la cámara, modifica <span class="tag">Hand Offset</span>. X=izquierda/derecha, Y=arriba/abajo, Z=adelante/atrás.</div>
+</div>
+<div class="tip-card">
+<div class="tip-tit">🐞 Debug fácil</div>
+<div class="tip-desc">Los errores del láser, del agarre o del sistema de pasos se ven directamente en el Game View. No necesitas ponerte el casco para ver qué falla.</div>
+</div>
+<div class="tip-card">
+<div class="tip-tit">🚀 Sin ALVR</div>
+<div class="tip-desc">Puedes desarrollar sin tener ALVR encendido ni el Oculus Go conectado. El modo escritorio funciona aunque no haya ningún dispositivo VR conectado al PC.</div>
+</div>
+</div>
+
+<div class="ejemplo">
+<strong>📌 Flujo recomendado de trabajo:</strong><br>
+1. Trabajas en scripts desde Visual Studio<br>
+2. Vuelves a Unity y das Play<br>
+3. Pulsas P para modo escritorio<br>
+4. Pruebas el cambio con mouse y teclado<br>
+5. Paras, ajustas, vuelves a probar<br>
+6. Cuando funciona, te pones el casco y pruebas en VR
+</div>
+</div>
+</div>
+
+</div><!-- /slides -->
+
+<button class="nav-btn prev" id="prevBtn">&#10094;</button>
+<button class="nav-btn next" id="nextBtn">&#10095;</button>
+<div id="progress"></div>
+<div id="counter">01 / 05</div>
+
+<script>
+let current=0;const slides=document.querySelectorAll('.slide');const total=slides.length;const progress=document.getElementById('progress');const counter=document.getElementById('counter');const prevBtn=document.getElementById('prevBtn');const nextBtn=document.getElementById('nextBtn');
+for(let i=0;i<total;i++){const dot=document.createElement('div');dot.className='dot'+(i===0?' active':'');dot.onclick=()=>goTo(i);progress.appendChild(dot);}
+function goTo(idx){slides[current].classList.remove('active');progress.children[current].classList.remove('active');current=idx;slides[current].classList.add('active');progress.children[current].classList.add('active');counter.textContent=(current+1).toString().padStart(2,'0')+' / '+total.toString().padStart(2,'0');prevBtn.classList.toggle('hidden',current===0);nextBtn.classList.toggle('hidden',current===total-1);}
+function navigate(dir){const next=current+dir;if(next>=0&&next<total)goTo(next);}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')navigate(1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')navigate(-1);});
+</script>
+</body>
+</html>

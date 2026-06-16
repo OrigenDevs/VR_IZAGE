@@ -1,0 +1,124 @@
+TEXTOS COMPLEMENTARIOS PARA PIZARRÓN (superponer en Unity, no incluir en las imágenes)
+=====================================================================================
+Estos textos se renderizarían como overlay en Unity sobre la imagen del pizarrón,
+con tipografía futurista, color blanco o gris claro, alineados en la parte inferior
+o en una esquina. NO deben ir dentro de la imagen generada por IA.
+
+NOTA: Las imágenes fueron diseñadas SIN texto. La mayoría no necesita texto adicional.
+Solo se listan aquí casos donde un título o etiqueta corta podría reforzar el mensaje.
+
+--- OPCIONALES (solo si se desea texto adicional) ---
+
+1. [Menú Principal]
+   Subtítulo: "Selecciona un módulo"
+
+2. [Introducción]
+   Título: "Módulo de Izaje"
+   Subtítulo: "4 fases · Documentación · Maqueta · Mesa · Campo"
+
+3. [Paso 1]
+   Título: "Rigger + Operador"
+   Subtítulo: "Trabajo en equipo"
+
+4. [Paso 2]
+   Título: "Certificación Rigger"
+
+5. [Paso 3]
+   Título: "Certificación Grúa Móvil"
+
+6. [Paso 4]
+   Título: "Mantenimiento al Día"
+
+7. [Paso 5]
+   Título: "Plan de Izaje"
+   Subtítulo: "Aprobado"
+
+8. [Paso 6 — primera parte]
+   Título: "Estabilización"
+
+9. [Paso 6 — segunda parte]
+   Título: "Base Firme"
+
+10. [Paso 7 — primera parte]
+    Título: "Centro de Gravedad"
+
+11. [Paso 7 — segunda parte]
+    Título: "Liberar Carga"
+    Subtítulo: "Eliminar obstáculos"
+
+12. [Paso 8 — primera parte]
+    Título: "Área Segregada"
+
+13. [Paso 8 — segunda parte]
+    Título: "Proyección de Carga"
+    Subtítulo: "Cono de caída"
+
+14. [Paso 9 — primera parte]
+    Título: "Informar al Personal"
+
+15. [Paso 9 — segunda parte]
+    Título: "Zonas Restringidas"
+    Subtítulo: "No permanecer bajo la carga"
+
+16. [Paso 10]
+    Título: "Equipo de Protección Personal"
+    Subtítulo: "Seleccionar elementos"
+
+17. [Paso 11 — primera parte]
+    Título: "Accesorios de Izaje"
+    Subtítulo: "CMU / WLL"
+
+18. [Paso 11 — segunda parte]
+    Título: "Tipos de Eslingas"
+    Subtítulo: "Textil · Cable · Cadena"
+
+19. [Paso 11 — tercera parte]
+    Título: "Grilletes · Ganchos · Anillas"
+    Subtítulo: "Conectores y seguridad"
+
+20. [Paso 11 — cuarta parte]
+    Título: "Selección según peso"
+    Subtítulo: "1500 kg → Eslinga verde 60mm · CMU 2000kg"
+
+21. [Paso 12 — primera parte]
+    Título: "Inspección de Elementos"
+
+22. [Paso 12 — segunda parte]
+    Título: "Elige el seguro"
+
+23. [Paso 13]
+    Título: "Comunicación"
+    Subtítulo: "Radio · Video · Señas"
+
+24. [Paso 14]
+    Título: "Protocolo de Comunicación"
+    Subtítulo: "Notificar al personal"
+
+25. [Paso 15 — primera parte]
+    Título: "Verificación Climática"
+
+26. [Paso 15 — segunda parte]
+    Título: "Clima Adecuado"
+    Subtítulo: "Viento · Lluvia · Niebla"
+
+27. [Paso 16 — primera parte]
+    Título: "Terreno Firme y Nivelado"
+
+28. [Paso 16 — segunda parte]
+    Título: "Sin Obstáculos"
+    Subtítulo: "Zona despejada"
+
+29. [Paso 16 — tercera parte]
+    Título: "Suelo Seco y Compacto"
+
+30. [Paso 17]
+    Título: "Confirmar con Operador"
+    Subtítulo: "Orden crítica → Repetir y confirmar"
+
+31. [Paso 18 — primera parte]
+    Título: "Consecuencias"
+    Subtítulo: "Cuando no se siguen los protocolos"
+
+32. [Paso 18 — segunda parte]
+    Título: "Seguridad no es opcional"
+    Subtítulo: "18 pasos · 1 objetivo"
