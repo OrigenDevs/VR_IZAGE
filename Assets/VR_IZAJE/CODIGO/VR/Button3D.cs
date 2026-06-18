@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Button3D : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Button3D : MonoBehaviour
     public float pressSpeed = 8f;
     public float releaseSpeed = 5f;
     public AudioSource clickSound;
+    public UnityEvent onClick;
 
     private Vector3 originalScale;
     private float currentMultiplier = 1f;
@@ -39,6 +41,7 @@ public class Button3D : MonoBehaviour
         isPressed = false;
         if (clickSound != null)
             clickSound.Play();
+        onClick.Invoke();
     }
 
     void Update()

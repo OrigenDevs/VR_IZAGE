@@ -14,7 +14,7 @@ public class DialogData : MonoBehaviour
 
     void OnEnable()
     {
-        var player = FindObjectOfType<DialogPlayer>();
+        var player = FindFirstObjectByType<DialogPlayer>();
         if (player != null)
             player.Play(this);
     }
