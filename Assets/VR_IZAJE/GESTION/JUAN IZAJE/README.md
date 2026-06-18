@@ -36,3 +36,21 @@ Usa `.md` (Markdown) para que sea legible desde Open Code y desde cualquier edit
 ### Próximos pasos
 - Integrar el camión en la escena principal de campo
 - Colocar la grúa y el resto de la escenografía sobre el terrain
+
+---
+
+## 17/06/2026 — Juan
+
+### Qué hice hoy
+- Reemplacé modelo antiguo del camión por CamionPrincipal optimizado + Fence
+- Añadí ADG_Textures (paquete de texturas para el terreno)
+- Añadí ALP_Assets (nuevos assets para la escena)
+- Añadido Forst (follaje/árboles para el terreno)
+- Configuradas nuevas capas de terreno: Dirt, HalfDirt, Scree
+- Ajustes en EasyRoads3D road material y terrain layers
+- Agregados scripts Cs/ en la carpeta de gestión
+
+### Próximos pasos
+- Integrar el camión en la escena principal de campo (TRABAJO DE CAMPO IZAJE)
+- Colocar follaje y texturas en el terrain
+- Probar flujo en modo escritorio
