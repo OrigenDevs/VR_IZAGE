@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Button3D : MonoBehaviour
 {
@@ -7,16 +8,20 @@ public class Button3D : MonoBehaviour
     public float pressScale = 0.8f;
     public float pressSpeed = 8f;
     public float releaseSpeed = 5f;
-    public AudioSource clickSound;
+    public AudioClip clickSound;
+    public UnityEvent onClick;
 
     private Vector3 originalScale;
     private float currentMultiplier = 1f;
     private bool isHovered = false;
     private bool isPressed = false;
+    private AudioSource audioSource;
 
     void Start()
     {
         originalScale = transform.localScale;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     public void OnHoverStart()
@@ -38,7 +43,8 @@ public class Button3D : MonoBehaviour
     {
         isPressed = false;
         if (clickSound != null)
-            clickSound.Play();
+            audioSource.PlayOneShot(clickSound);
+        onClick.Invoke();
     }
 
     void Update()

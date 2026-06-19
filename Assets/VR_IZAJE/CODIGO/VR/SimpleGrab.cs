@@ -6,6 +6,8 @@ public class SimpleGrab : MonoBehaviour
     public float releaseSpeed = 4f;
     public bool faceCamera = true;
     public float faceCameraSpeed = 10f;
+    public AudioClip grabSound;
+    public AudioClip releaseSound;
 
     private Transform grabTarget;
     private Vector3 originalPosition;
@@ -16,6 +18,7 @@ public class SimpleGrab : MonoBehaviour
     private bool isGrabbed = false;
     private bool movingToHand = false;
     private bool movingToOriginal = false;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -28,6 +31,8 @@ public class SimpleGrab : MonoBehaviour
             rbWasKinematic = rb.isKinematic;
             rb.useGravity = false;
         }
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     public void Grab(Transform target)
@@ -43,6 +48,8 @@ public class SimpleGrab : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
+        if (grabSound != null)
+            audioSource.PlayOneShot(grabSound);
     }
 
     public void Release()
@@ -57,6 +64,8 @@ public class SimpleGrab : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
+        if (releaseSound != null)
+            audioSource.PlayOneShot(releaseSound);
     }
 
     void Update()
