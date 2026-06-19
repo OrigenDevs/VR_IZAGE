@@ -16,7 +16,8 @@ public class LipSyncControllerEditor : Editor
             {
                 lipSync.PopulateSpritesFromClip();
                 EditorUtility.SetDirty(lipSync);
-                EditorApplication.RepaintHierarchyWindow();
+                serializedObject.Update();
+                Repaint();
             }
         }
 

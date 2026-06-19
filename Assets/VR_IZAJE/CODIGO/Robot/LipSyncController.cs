@@ -23,15 +23,35 @@ public class LipSyncController : MonoBehaviour
     {
 #if UNITY_EDITOR
         if (mouthAnimationClip == null) return;
-        var bindings = UnityEditor.AnimationUtility.GetObjectReferenceCurveBindings(mouthAnimationClip);
-        foreach (var binding in bindings)
+
+        var so = new UnityEditor.SerializedObject(mouthAnimationClip);
+        var curvesProp = so.FindProperty("m_ObjectReferenceCurves");
+        if (curvesProp == null) return;
+
+        for (int i = 0; i < curvesProp.arraySize; i++)
         {
-            if (binding.propertyName == "m_Sprite")
+            var curveProp = curvesProp.GetArrayElementAtIndex(i);
+            var bindingProp = curveProp.FindPropertyRelative("m_Binding");
+            if (bindingProp == null) continue;
+
+            var propName = bindingProp.FindPropertyRelative("m_PropertyName");
+            if (propName == null || propName.stringValue != "m_Sprite") continue;
+
+            var keyframesProp = curveProp.FindPropertyRelative("m_Keyframes");
+            if (keyframesProp == null || keyframesProp.arraySize == 0) continue;
+
+            var list = new System.Collections.Generic.List<Sprite>();
+            for (int j = 0; j < keyframesProp.arraySize; j++)
             {
-                var keyframes = UnityEditor.AnimationUtility.GetObjectReferenceCurve(mouthAnimationClip, binding);
-                mouthSprites = new Sprite[keyframes.Length];
-                for (int i = 0; i < keyframes.Length; i++)
-                    mouthSprites[i] = keyframes[i].value as Sprite;
+                var kfProp = keyframesProp.GetArrayElementAtIndex(j);
+                var valProp = kfProp.FindPropertyRelative("value");
+                if (valProp?.objectReferenceValue is Sprite s)
+                    list.Add(s);
+            }
+
+            if (list.Count > 0)
+            {
+                mouthSprites = list.ToArray();
                 break;
             }
         }
