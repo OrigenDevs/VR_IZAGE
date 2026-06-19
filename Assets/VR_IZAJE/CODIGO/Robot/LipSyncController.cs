@@ -25,35 +25,49 @@ public class LipSyncController : MonoBehaviour
         if (mouthAnimationClip == null) return;
 
         var so = new UnityEditor.SerializedObject(mouthAnimationClip);
-        var curvesProp = so.FindProperty("m_ObjectReferenceCurves");
-        if (curvesProp == null) return;
-
-        for (int i = 0; i < curvesProp.arraySize; i++)
+        var curvesProp = so.FindProperty("m_PPtrCurves");
+        if (curvesProp != null)
         {
-            var curveProp = curvesProp.GetArrayElementAtIndex(i);
-            var bindingProp = curveProp.FindPropertyRelative("m_Binding");
-            if (bindingProp == null) continue;
-
-            var propName = bindingProp.FindPropertyRelative("m_PropertyName");
-            if (propName == null || propName.stringValue != "m_Sprite") continue;
-
-            var keyframesProp = curveProp.FindPropertyRelative("m_Keyframes");
-            if (keyframesProp == null || keyframesProp.arraySize == 0) continue;
-
-            var list = new System.Collections.Generic.List<Sprite>();
-            for (int j = 0; j < keyframesProp.arraySize; j++)
+            for (int i = 0; i < curvesProp.arraySize; i++)
             {
-                var kfProp = keyframesProp.GetArrayElementAtIndex(j);
-                var valProp = kfProp.FindPropertyRelative("value");
-                if (valProp?.objectReferenceValue is Sprite s)
-                    list.Add(s);
-            }
+                var elem = curvesProp.GetArrayElementAtIndex(i);
+                var attrProp = elem.FindPropertyRelative("attribute");
+                if (attrProp == null || attrProp.stringValue != "m_Sprite") continue;
 
-            if (list.Count > 0)
-            {
-                mouthSprites = list.ToArray();
-                break;
+                var curveProp = elem.FindPropertyRelative("curve");
+                if (curveProp == null || curveProp.arraySize == 0) continue;
+
+                var list = new System.Collections.Generic.List<Sprite>();
+                for (int j = 0; j < curveProp.arraySize; j++)
+                {
+                    var valProp = curveProp.GetArrayElementAtIndex(j).FindPropertyRelative("value");
+                    if (valProp?.objectReferenceValue is Sprite s)
+                        list.Add(s);
+                }
+
+                if (list.Count > 0)
+                {
+                    mouthSprites = list.ToArray();
+                    return;
+                }
             }
+        }
+
+        string clipPath = UnityEditor.AssetDatabase.GetAssetPath(mouthAnimationClip);
+        string clipDir = System.IO.Path.GetDirectoryName(clipPath);
+        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:Sprite", new[] { clipDir + "/BOCA LOOP" });
+        if (guids.Length > 0)
+        {
+            var loaded = new System.Collections.Generic.List<Sprite>();
+            foreach (string guid in guids)
+            {
+                var sprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(UnityEditor.AssetDatabase.GUIDToAssetPath(guid));
+                if (sprite != null)
+                    loaded.Add(sprite);
+            }
+            loaded.Sort((a, b) => UnityEditor.EditorUtility.NaturalCompare(a.name, b.name));
+            if (loaded.Count > 0)
+                mouthSprites = loaded.ToArray();
         }
 #endif
     }

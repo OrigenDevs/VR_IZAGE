@@ -21,9 +21,22 @@ public class LipSyncControllerEditor : Editor
             }
         }
 
-        if (lipSync.mouthSprites != null && lipSync.mouthSprites.Length > 0)
+        if (lipSync.mouthSprites != null)
         {
-            EditorGUILayout.LabelField("Sprites extraídos: " + lipSync.mouthSprites.Length, EditorStyles.helpBox);
+            if (lipSync.mouthSprites.Length > 0)
+            {
+                int valid = 0;
+                foreach (var s in lipSync.mouthSprites) { if (s != null) valid++; }
+                EditorGUILayout.LabelField($"Sprites: {lipSync.mouthSprites.Length} ({valid} válidos)", EditorStyles.helpBox);
+            }
+            else
+            {
+                EditorGUILayout.LabelField("No se encontraron sprites. Verifica que el clip o la carpeta BOCA LOOP existan.", EditorStyles.helpBox);
+            }
+        }
+        else
+        {
+            EditorGUILayout.LabelField("Haz clic en 'Extraer Sprites del Clip' para cargar.", EditorStyles.helpBox);
         }
     }
 }
