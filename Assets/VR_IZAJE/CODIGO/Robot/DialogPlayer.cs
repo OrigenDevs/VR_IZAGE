@@ -68,6 +68,7 @@ public class DialogPlayer : MonoBehaviour
             audioSource.Play();
 
         float duration = data.voiceClip != null ? data.voiceClip.length : 1f;
+        float textDuration = Mathf.Max(duration - data.textDelay, 0.5f);
         float elapsed = 0f;
         int animIndex = 0;
 
@@ -90,7 +91,8 @@ public class DialogPlayer : MonoBehaviour
 
             if (text3D != null && !string.IsNullOrEmpty(data.dialogText))
             {
-                int charCount = Mathf.FloorToInt(normalized * data.dialogText.Length);
+                float textNormalized = Mathf.Clamp01(elapsed / textDuration);
+                int charCount = Mathf.FloorToInt(textNormalized * data.dialogText.Length);
                 text3D.text = data.dialogText.Substring(0, Mathf.Min(charCount, data.dialogText.Length));
             }
 

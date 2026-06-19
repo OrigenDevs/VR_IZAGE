@@ -5,6 +5,7 @@ public class DialogData : MonoBehaviour
     public AudioClip voiceClip;
     [TextArea(3, 10)]
     public string dialogText;
+    public float textDelay;
     public AnimationTimelineEntry[] animationTimeline;
 
     public GameObject[] objectsToActivate;
