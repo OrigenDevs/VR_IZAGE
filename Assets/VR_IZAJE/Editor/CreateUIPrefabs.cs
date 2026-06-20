@@ -53,11 +53,6 @@ public class CreateUIPrefabs
         btn3D.hoverScale = 1.2f;
         btn3D.pressScale = 0.8f;
 
-        var confirm3D = root.AddComponent<UI_StepConfirm3D>();
-        confirm3D.panel = root;
-        confirm3D.text3D = tmp;
-        confirm3D.confirmButton = btn3D;
-
         PrefabUtility.SaveAsPrefabAsset(root, path);
         Object.DestroyImmediate(root);
 
