@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/VR_IZAJE/ESCENAS/LOBBI.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/VR_IZAJE/ESCENAS/HOME.unity
+    guid: 15a2775a3feafe043af9d1aab65734eb
+  - enabled: 1
+    path: Assets/VR_IZAJE/ESCENAS/TRABAJO DE CAMPO IZAJE.unity
+    guid: cf2b58d220abf6a448d5ca0dc4595958
+  - enabled: 1
+    path: Assets/VR_IZAJE/ESCENAS/VEHICULOS DE CONSTRUCCION.unity
+    guid: 62f288e77695751469b0313bc8448a9b
+  - enabled: 1
+    path: Assets/VR_IZAJE/ESCENAS/CAMION.unity
+    guid: bb72ab0a2d5270f4aa7f2aea54cb39eb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c3261cb8dc89a304c8dca146de7dad54, type: 2}

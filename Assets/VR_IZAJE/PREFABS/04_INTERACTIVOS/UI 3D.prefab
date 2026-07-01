@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7308020335148680442, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 5
+      objectReference: {fileID: 0}
     - target: {fileID: -7209095146588410536, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -92,6 +96,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: -5051795914100927276, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Panel barra
+      objectReference: {fileID: 0}
     - target: {fileID: -5045979450822459893, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -100,18 +108,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: -1977169331833307911, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1934232429445818727, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: -1690498370033484218, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: boton 2
+      objectReference: {fileID: 0}
     - target: {fileID: -1689563370653706113, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: -1637466684123807909, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 6
+      objectReference: {fileID: 0}
     - target: {fileID: -1332388027337364361, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: -900317055132922922, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Panel barra
+      objectReference: {fileID: 0}
     - target: {fileID: -480699727462986526, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -132,22 +156,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI 3D
       objectReference: {fileID: 0}
+    - target: {fileID: 1351587325311292170, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: boton 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1371632437339034832, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: 2081115988941288004, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Panel de texto
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145289538107369589, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187766616894658967, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585002373910084404, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3953240241429739338, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: 4224837742134891942, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: boton 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4251170466337381036, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: 4975672393788383434, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5255188706264253049, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8088c5c650800e242959f64dadc89012, type: 2}
+    - target: {fileID: 6061430972785249309, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: boton 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962123736689819703, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363409996634978842, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906344512329135724, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: Cuadro de texto 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020197890058861113, guid: 30078329867f7ec4cba14ecb3c68bb36, type: 3}
+      propertyPath: m_Name
+      value: boton 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -470,7 +542,7 @@ MonoBehaviour:
   pressScale: 0.95
   pressSpeed: 12
   releaseSpeed: 5
-  clickSound: {fileID: 8300000, guid: 194e85aa75dfcb543a8992ceab956d95, type: 3}
+  audioSource: {fileID: 0}
   onClick:
     m_PersistentCalls:
       m_Calls: []

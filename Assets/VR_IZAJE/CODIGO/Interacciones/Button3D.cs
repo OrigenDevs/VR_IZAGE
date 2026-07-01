@@ -8,20 +8,17 @@ public class Button3D : MonoBehaviour
     public float pressScale = 0.8f;
     public float pressSpeed = 8f;
     public float releaseSpeed = 5f;
-    public AudioClip clickSound;
+    public AudioSource audioSource;
     public UnityEvent onClick;
 
     private Vector3 originalScale;
     private float currentMultiplier = 1f;
     private bool isHovered = false;
     private bool isPressed = false;
-    private AudioSource audioSource;
 
     void Start()
     {
         originalScale = transform.localScale;
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
     }
 
     public void OnHoverStart()
@@ -42,8 +39,8 @@ public class Button3D : MonoBehaviour
     public void OnRelease()
     {
         isPressed = false;
-        if (clickSound != null)
-            audioSource.PlayOneShot(clickSound);
+        if (audioSource != null)
+            audioSource.Play();
         onClick.Invoke();
     }
 

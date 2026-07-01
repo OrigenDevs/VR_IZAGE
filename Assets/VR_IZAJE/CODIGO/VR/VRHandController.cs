@@ -48,6 +48,8 @@ public class VRHandController : MonoBehaviour
     private RaycastHit lastHit;
     private SimpleGrab grabbedObject;
     private Button3D hoveredButton;
+    private RotacionArrastre rotatingObject;
+    private CambioMaterialHover hoveredMaterialChanger;
 
     void Start()
     {
@@ -158,6 +160,17 @@ public class VRHandController : MonoBehaviour
                 grabbedObject.Release();
                 grabbedObject = null;
             }
+            if (rotatingObject != null)
+            {
+                rotatingObject.TerminarRotacion();
+                rotatingObject = null;
+            }
+        }
+
+        if (!hitObject && hoveredMaterialChanger != null)
+        {
+            hoveredMaterialChanger.OnHoverEnd();
+            hoveredMaterialChanger = null;
         }
 
         HandleGrab();
@@ -209,12 +222,31 @@ public class VRHandController : MonoBehaviour
 
         SimpleGrab sg = null;
         Button3D btn = null;
+        SistemaAutopartes sap = null;
+        RotacionArrastre ra = null;
 
         if (hitObject && lastHit.collider != null)
         {
             sg = lastHit.collider.GetComponentInParent<SimpleGrab>();
             if (sg == null)
-                btn = lastHit.collider.GetComponentInParent<Button3D>();
+            {
+                ra = lastHit.collider.GetComponentInParent<RotacionArrastre>();
+                if (ra == null)
+                    btn = lastHit.collider.GetComponentInParent<Button3D>();
+            }
+            if (sg == null && btn == null && ra == null)
+                sap = lastHit.collider.GetComponentInParent<SistemaAutopartes>();
+        }
+
+        CambioMaterialHover cmh = null;
+        if (hitObject && lastHit.collider != null)
+            cmh = CambioMaterialHover.BuscarPorCollider(lastHit.collider);
+
+        if (cmh != hoveredMaterialChanger)
+        {
+            if (hoveredMaterialChanger != null) hoveredMaterialChanger.OnHoverEnd();
+            if (cmh != null) cmh.OnHoverStart();
+            hoveredMaterialChanger = cmh;
         }
 
         Button3D newHovered = (sg != null || grabbedObject != null) ? null : btn;
@@ -234,6 +266,13 @@ public class VRHandController : MonoBehaviour
                 grabbedObject = sg;
                 grabbedObject.Grab(grabAttachPoint);
             }
+            else if (ra != null)
+            {
+                if (rotatingObject != null)
+                    rotatingObject.TerminarRotacion();
+                rotatingObject = ra;
+                rotatingObject.EmpezarRotacion(lastHit.point);
+            }
             else if (hoveredButton != null)
             {
                 hoveredButton.OnPress();
@@ -246,10 +285,26 @@ public class VRHandController : MonoBehaviour
                 grabbedObject.Release();
                 grabbedObject = null;
             }
+            if (rotatingObject != null)
+            {
+                rotatingObject.TerminarRotacion();
+                rotatingObject = null;
+            }
             if (hoveredButton != null)
             {
                 hoveredButton.OnRelease();
             }
+            if (sap != null)
+            {
+                sap.Cambiar();
+            }
+        }
+
+        if (triggerPressed && rotatingObject != null && hitObject)
+        {
+            var raHit = lastHit.collider.GetComponentInParent<RotacionArrastre>();
+            if (raHit == rotatingObject)
+                rotatingObject.Rotar(lastHit.point);
         }
     }
 
@@ -281,6 +336,16 @@ public class VRHandController : MonoBehaviour
         {
             grabbedObject.Release();
             grabbedObject = null;
+        }
+        if (rotatingObject != null)
+        {
+            rotatingObject.TerminarRotacion();
+            rotatingObject = null;
+        }
+        if (hoveredMaterialChanger != null)
+        {
+            hoveredMaterialChanger.OnHoverEnd();
+            hoveredMaterialChanger = null;
         }
         if (hoveredButton != null)
         {

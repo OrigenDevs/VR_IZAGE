@@ -6,10 +6,13 @@ public class DialogData : MonoBehaviour
     [TextArea(3, 10)]
     public string dialogText;
     public float textDelay;
+    public bool autoAvanzar;
     public AnimationTimelineEntry[] animationTimeline;
 
     public GameObject[] objectsToActivate;
     public GameObject[] objectsToDeactivate;
+    public GameObject[] objectsToActivateOnEnd;
+    public GameObject[] objectsToDeactivateOnEnd;
 
     public System.Action onDialogEnd;
 

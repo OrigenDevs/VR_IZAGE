@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SimpleGrab : MonoBehaviour
 {
+    public UnityEvent onGrab;
+    public UnityEvent onRelease;
     public float grabSpeed = 8f;
     public float releaseSpeed = 4f;
     public bool faceCamera = true;
     public float faceCameraSpeed = 10f;
+    public bool cambiarPosicionBase;
+    public Transform nuevaPosicionBase;
     public AudioClip grabSound;
     public AudioClip releaseSound;
 
@@ -43,6 +48,12 @@ public class SimpleGrab : MonoBehaviour
         movingToOriginal = false;
         grabTarget = target;
         transform.SetParent(null);
+        if (cambiarPosicionBase && nuevaPosicionBase != null)
+        {
+            originalPosition = nuevaPosicionBase.position;
+            originalRotation = nuevaPosicionBase.rotation;
+            originalParent = nuevaPosicionBase.parent;
+        }
         if (rb != null)
         {
             rb.isKinematic = true;
@@ -50,6 +61,7 @@ public class SimpleGrab : MonoBehaviour
         }
         if (grabSound != null)
             audioSource.PlayOneShot(grabSound);
+        onGrab.Invoke();
     }
 
     public void Release()
@@ -66,6 +78,7 @@ public class SimpleGrab : MonoBehaviour
         }
         if (releaseSound != null)
             audioSource.PlayOneShot(releaseSound);
+        onRelease.Invoke();
     }
 
     void Update()

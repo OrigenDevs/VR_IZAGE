@@ -54,3 +54,21 @@ Usa `.md` (Markdown) para que sea legible desde Open Code y desde cualquier edit
 - Integrar el camión en la escena principal de campo (TRABAJO DE CAMPO IZAJE)
 - Colocar follaje y texturas en el terrain
 - Probar flujo en modo escritorio
+
+---
+
+## 25/06/2026 — David + OpenCode
+
+### Qué se hizo
+- Reestructura completa del proyecto: eliminados StepManager, StepData, DialogSystemVR, UI obsoleta
+- Nueva estructura de carpetas: Interacciones/, Sistema_pasos/, Otros/
+- Nuevos scripts: SistemaAutopartes, RotacionArrastre, CambioMaterialHover, DestructorPorTrigger, CuentaRegresiva
+- SistemaAutopartes: selección de piezas con cambio de padre y transición suave
+- RotacionArrastre: rotación tipo trackball con sensibilidad
+- CambioMaterialHover: feedback visual en hover con cambio de material a hijos
+- VRHandController extendido con detección de todos los nuevos componentes
+- Documentación actualizada (DOCUMENTACION.md, INDEX.md)
+- Plan de proyecto y presentación para cliente en GESTION/
+- Diálogos de ejemplo creados (intro + motor)
+- Sistema de diálogos funcional con DialogPlayer + DialogData
+- Commit y push a origin/main
